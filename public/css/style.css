@@ -1,0 +1,85 @@
+root {
+    box-sizing: border-box;
+}
+
+*{
+    --color1: #212023;
+    --color2: #29282B;
+    --purple: #6F38C5;
+}
+
+body{
+    background-color: var(--color1);
+    color: #fff;
+}
+
+.sidebar-menu{
+    background-color: var(--color2);
+    width: 120px;
+    height: 100vh;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+}
+
+.sidebar-menu ul{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sidebar-menu ul li {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-menu ul li .material-symbols-rounded{
+    font-size: 2rem;
+}
+
+.container-minutos{
+    background-color: var(--color2);
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-minutos button{
+    background: var(--purple);
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--color2);
+    border-radius: 6px;
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
+    padding: 1.5rem 1.5rem ;
+}
+
+.categoria-card{
+    gap: 3rem
+}
+
+.categoria-card img{
+    height: 60px;
+    width: 60px;
+    
+}
+
