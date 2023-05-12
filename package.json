@@ -1,0 +1,19 @@
+{
+  "name": "classcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classcodeinc/ClassCode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classcodeinc/ClassCode/issues"
+  },
+  "homepage": "https://github.com/classcodeinc/ClassCode#readme"
+}

@@ -5,7 +5,9 @@ root {
 *{
     --color1: #212023;
     --color2: #29282B;
+    --color3: #F3F4F6;
     --purple: #6F38C5;
+    --yellow: #FFC107;
 }
 
 body{
