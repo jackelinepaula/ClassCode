@@ -106,11 +106,13 @@ button{
     width: 60px;   
 }
 
+
 .user-image{
     height: 180px;
     width: 180px;   
     border-radius: 50%;
 }
+
 
 .container-tutor{
     background-color: var(--color2);
@@ -118,4 +120,29 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+/* COMPRAR MINUTOS */   
+.comprar-min-main{
+    height: 100vh;
+}
+
+.comprar-min-main .user-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.comprar-min-main .user-container img{
+    height: 70px;
+}
+
+.comprar-min-main form{
+    width: 300px;
+    height: 300px;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--purple);
 }
