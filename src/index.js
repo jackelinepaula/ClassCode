@@ -26,6 +26,9 @@ app.get("/", function(req, res) {
 app.get("/comprar", function(req, res) {
     res.render("comprar_minutos")
 })
+app.get("/novaduvida", function(req, res) {
+    res.render("tela_duvida")
+})
 
 app.listen(portaRede, () => {
     console.log("[express] Working http://localhost:" + portaRede);

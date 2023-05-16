@@ -2,7 +2,7 @@ root {
     box-sizing: border-box;
 }
 
-*{
+* {
     --color1: #101114;
     --color2: #191B1F;
     --color3: #F3F4F6;
@@ -10,12 +10,33 @@ root {
     --yellow: #FFC107;
 }
 
-body{
+::-webkit-scrollbar {
+    background-color: var(--color1);
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color2);
+    border-radius: 6px;
+    transition: 200ms;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    transition: 200ms;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: var(--color1);
+}
+
+body {
     background-color: var(--color1);
     color: var(--color3);
 }
 
-.sidebar-menu{
+.sidebar-menu {
     background-color: var(--color2);
     width: 120px;
     height: 100vh;
@@ -28,7 +49,7 @@ body{
     position: fixed;
 }
 
-.sidebar-menu ul{
+.sidebar-menu ul {
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -40,7 +61,7 @@ body{
     list-style: none;
 }
 
-.sidebar-menu ul li a{
+.sidebar-menu ul li a {
     color: var(--color3);
     text-decoration: none;
     display: flex;
@@ -48,101 +69,116 @@ body{
     align-items: center;
 }
 
-.sidebar-menu ul li .active{
+.sidebar-menu ul li .active {
     color: var(--yellow);
 }
 
-.sidebar-menu ul li .material-symbols-rounded{
+.sidebar-menu ul li .material-symbols-rounded {
     font-size: 2rem;
 }
 
 .main {
     margin-left: 120px;
-    width: calc(100vw - 180px);
+    width: calc(100% - 120px);
 }
 
 
-.container-minutos{
+.container-minutos {
     background-color: var(--color2);
-    
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-button{
+button {
     background: var(--purple);
     border: 0;
     border-radius: 10px;
     color: #fff;
-    
+
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: var(--color2);
     border-radius: 6px;
     box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
-    padding: 1.5rem 1.5rem ;
+    padding: 1.5rem 1.5rem;
 }
 
-.categoria-container{
+.categoria-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
     width: 100%;
 }
 
-.categoria-card{
+.categoria-card {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.categoria-card img{
+.categoria-card img {
     height: 60px;
-    width: 60px;   
+    width: 60px;
 }
 
 
-.user-image{
+.user-image {
     height: 180px;
-    width: 180px;   
+    width: 180px;
     border-radius: 50%;
 }
 
 
-.container-tutor{
+.container-tutor {
     background-color: var(--color2);
-    
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-/* COMPRAR MINUTOS */   
-.comprar-min-main{
+/* COMPRAR MINUTOS */
+.comprar-min-main {
     height: 100vh;
 }
 
-.comprar-min-main .user-container{
+.user-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
 }
 
-.comprar-min-main .user-container img{
+.user-container img {
     height: 70px;
 }
 
-.comprar-min-main form{
+.comprar-min-container form {
     width: 300px;
     height: 300px;
 }
 
 .form-range::-webkit-slider-thumb {
     background-color: var(--purple);
+}
+
+/* PAGINA DE NOVA DUVIDA */
+
+.duvidas-container form {}
+
+.duvidas-container form textarea {
+    background-color: var(--color1);
+    color: var(--color3);
+    border-radius: 6px;
+    border: 0;
+}
+
+.duvidas-container form button {
+    width: 300px;
 }
