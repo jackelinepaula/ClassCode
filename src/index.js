@@ -21,7 +21,11 @@ app.set("view engine" , pageExtensao)
 // ROTAS
 
 app.get("/", function(req, res) {
-    res.render("index")
+    res.render("index", {
+        //Esse trecho aqui ta passando o caminho do css como 
+        //parâmetro pro handlebars
+        style: "/css/style.css"
+    })
 })
 app.get("/comprar", function(req, res) {
     res.render("comprar_minutos")
@@ -30,6 +34,11 @@ app.get("/novaduvida", function(req, res) {
     res.render("tela_duvida")
 })
 
+app.get("/dashtutor", function(req, res){
+    res.render("dash_tutor", {
+        style: "/css/dashtutor.css"
+    })
+})
 app.listen(portaRede, () => {
     console.log("[express] Working http://localhost:" + portaRede);
 })
