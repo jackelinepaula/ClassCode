@@ -8,8 +8,14 @@
     max-width: 980px;
 }
 
-.col{
+.coluna{
+    display: flex;
     width: min-content;
+    padding: 0;
+}
+
+.col-sm{
+    padding: 0px;
 }
 
 .row{
@@ -26,25 +32,36 @@
 .coluna-2 .card{
     width: 440px;
     height: 270px;
+    padding: 8px;
 }
 
 .coluna-2 .card-body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .mini-perfil .card-content{
    display: flex;
    justify-content: space-between;
+   align-items: center;
 }
 
 .mini-perfil .card-img{
-    width: 40%;
+    display: flex;
+    align-items: center;
+    width: 30%;
 }
 
+.mini-perfil .card-img img{
+    border-radius: 50%;
+    width: 100px;
+}
+
+
 /* Textos */
-.mini-perfil .card-text p.nome{
+.mini-perfil .card-text h5.nome{
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -56,7 +73,14 @@
 
 /* Languages */
 .mini-perfil .card-languages{
+    display: inline-block;
+    padding: 15px;
     height: 60px;
+    text-align: center;
+}
+
+.mini-perfil .card-languages img{
+    width: 10%;
 }
 
 
@@ -66,9 +90,9 @@
 }
 
 .painel .container .card{
-    width: 100%;
+    width: 300;
     height: 280px;
-    
+    padding: 5px;
 }
 
 /* Painel card texts */
