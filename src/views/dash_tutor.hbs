@@ -13,10 +13,12 @@
             <h4>Olá, Zoro</h4>
         </div>
         <div class="container">
-            <div class="row">
+            {{!-- Linha --}}
+            <div class="row content-header">
+                {{!-- Coluna --}}
                 <div class="col coluna-1">
-                    <div class="row row-cols-2">
-                        <div class="col">
+                    <div class="row">
+                        <div class="coluna">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Aulas diárias</p>
@@ -24,7 +26,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="coluna">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Acúmulo de aulas</p>
@@ -32,7 +34,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="coluna">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Classificação</p>
@@ -40,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="coluna">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text">Ganhos</p>
@@ -52,23 +54,25 @@
                 </div>
                 {{!-- Lado perfil --}}
                 <div class="col coluna-2">
-                    <div class="row">
-                        <div class="col">
+                    <div class="row justify-content-end">
+                        <div class="coluna">
                             {{!-- Card mini perfil --}}
                             <div class="card mini-perfil">
                                 <div class="card-body">
                                     <p class="card-tag">Tutor</p>
                                     <div class="card-content">
                                         <div class="card-text">
-                                            <p class="nome">Roronoa Zoro</p>
+                                            <h5 class="nome">Roronoa Zoro</h5>
                                             <p class="academic">Fatec ZL</p>
-                                            <p class="academic">Engenheiro de software</p>
+                                            <p class="academic">Engenheiro de Software</p>
                                         </div>
                                         <div class="card-img">
-                                            <img src="" alt="">
+                                            <img src="/img/crash.png" alt="Imagem de perfil">
                                         </div>
                                     </div>
-                                    <div class="card-languages">!</div>
+                                    <div class="card-languages">
+                                        <img src="/img/nodejs.png" alt="Icon referente a linguagem">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,29 +101,40 @@
                                 <a href="#" class="card-link">NodeJS</a>
                                 <a href="#" class="card-link">Firebase</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm ">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <h5 class="card-title">Centralizar div</h5>
+                            <h6 class="card-subtitle"><span class="material-symbols-sharp" style="color: orange">
+                                    fiber_manual_record
+                                </span>Nami</h6>
+                            <p class="card-text">Olá preciso de ajuda para fazer um crud com firebase e nodejs, pois o
+                                maluco do meu prof...
                             </p>
+                            <div class="links">
+                                <a href="#" class="card-link">NodeJS</a>
+                                <a href="#" class="card-link">Firebase</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <h5 class="card-title">Implementação do banco de dados em Java</h5>
+                            <h6 class="card-subtitle"><span class="material-symbols-sharp" style="color: gray">
+                                    fiber_manual_record
+                                </span>Usopp</h6>
+                            <p class="card-text">Olá preciso de ajuda para fazer um crud com firebase e nodejs, pois o
+                                maluco do meu prof...
                             </p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <div class="links">
+                                <a href="#" class="card-link">NodeJS</a>
+                                <a href="#" class="card-link">Firebase</a>
+                            </div>
                         </div>
                     </div>
                 </div>
