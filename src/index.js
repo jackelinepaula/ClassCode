@@ -20,11 +20,41 @@ app.set("view engine" , pageExtensao)
 
 // ROTAS
 
-app.get("/", function(req, res) {
-    res.render("home", {
+app.get("/", function(req, res){
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "login",
+    }))
+    res.render("index", {
+        style: "/css/login.css"
+    })
+})
+
+app.get("/cadastro", function(req, res){
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "login",
+    }))
+    res.render("cadastro", {
+        style: "/css/login.css"
+    })
+})
+
+app.get("/dashaluno", function(req, res) {
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "main",
+    }))
+    res.render("dash_aluno", {
         //Esse trecho aqui ta passando o caminho do css como 
         //parâmetro pro handlebars
         style: "/css/home.css"
+    })
+})
+
+app.get("/dashtutor", function(req, res){
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "main",
+    }))
+    res.render("dash_tutor", {
+        style: "/css/dashtutor.css"
     })
 })
 app.get("/comprar", function(req, res) {
@@ -38,11 +68,7 @@ app.get("/novaduvida", function(req, res) {
     })
 })
 
-app.get("/dashtutor", function(req, res){
-    res.render("dash_tutor", {
-        style: "/css/dashtutor.css"
-    })
-})
+
 app.listen(portaRede, () => {
     console.log("[express] Working http://localhost:" + portaRede);
 })
