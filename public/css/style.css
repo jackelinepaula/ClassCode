@@ -3,6 +3,8 @@ root {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     --color1: #212023;
     --color2: #29282B;
     --color3: #F3F4F6;
@@ -31,11 +33,36 @@ root {
     background-color: var(--color1);
 }
 
-body {
+/* body {
     background-color: var(--color1);
     color: var(--color3);
+} */
+
+.container-sm{
+    max-width: 980px;
 }
 
+.section-user .user-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-user .user-container .img{
+    width: 60px;
+}
+
+.section-user .user-container .img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+
+/* SideBar */
+
+/* 
 .sidebar-menu {
     background-color: var(--color2);
     width: 120px;
@@ -75,117 +102,10 @@ body {
 
 .sidebar-menu ul li .material-symbols-rounded {
     font-size: 2rem;
-}
+} */
 
-.main {
+/* .main {
     margin-left: 120px;
     padding: 150px 0;
     width: calc(100% - 120px);
-}
-
-
-.container-minutos {
-    background-color: var(--color2);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-button {
-    background: var(--purple);
-    border: 0;
-    border-radius: 10px;
-    color: #fff;
-
-}
-
-.card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--color2);
-    border-radius: 6px;
-    box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
-    padding: 1.5rem 1.5rem;
-}
-.categorias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    width: 100%;
-}
-
-.categoria-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    width: 100%;
-}
-
-.categoria-card {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.categoria-card img {
-    height: 60px;
-    width: 60px;
-}
-
-
-.user-image {
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
-}
-
-
-.container-tutor {
-    background-color: var(--color2);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/* COMPRAR MINUTOS */
-.comprar-min-main {
-    height: 100vh;
-}
-
-.user-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem;
-}
-
-.user-container img {
-    height: 70px;
-}
-
-.comprar-min-container form {
-    width: 300px;
-    height: 300px;
-}
-
-.form-range::-webkit-slider-thumb {
-    background-color: var(--purple);
-}
-
-/* PAGINA DE NOVA DUVIDA */
-
-.duvidas-container form {}
-
-.duvidas-container form textarea {
-    background-color: var(--color1);
-    color: var(--color3);
-    border-radius: 6px;
-    border: 0;
-}
-
-.duvidas-container form button {
-    width: 300px;
-}
+} */

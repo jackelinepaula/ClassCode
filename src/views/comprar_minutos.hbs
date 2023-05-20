@@ -1,17 +1,41 @@
-<div class="d-flex justify-content-between align-items-center">
-    <div class="breadcrumb mb-4 ">
-        <span>Início / Minutos</span>
+{{!-- bootstrap class --}}
+<div class="container-sm">
+
+    <div class="section-user">
+        <div class="user-container">
+            <p class="user-name">Nami</p>
+            <div class="img">
+                <img src="/img/crash.png" alt="Imagem de perfil">
+                {{!-- Esse aqui vai ser o icon de status <span></span> --}}
+            </div>
+        </div>
     </div>
-    <div class="user-container">
-        <span>Bem Vindo, Nami!</span>
-        <img src="/img/Nami.png" alt="">
+
+    <div class="section-breadcrumb">
+        {{!-- bootstrap class --}}
+        <div class="breadcrumb mb-4 ">
+            <span>Início / Minutos</span>
+        </div>
     </div>
+
+    <div class="section-compra">
+        <div class="title">
+            <h5>Comprar minutos</h5>
+        </div>
+        <form action="" method="">
+            {{!-- bootstrap class --}}
+            <div class="card">
+            <div class="card-body">
+                <label for="customRange1" class="form-label"><span id="minuto">30</span>min</label>
+                <input type="range" class="form-range" id="customRange1">
+                <input type="submit" value="Comprar">
+            </div>
+           
+        </div>
+
+        </form>
+    </div>
+
 </div>
 
-<div class="comprar-min-container">
-    <h5>Comprar Minutos</h5>
-    <form class="card d-flex flex-column justify-content-center gap-3" action="" method="post">
-        <h3>30 Min</h3>
-        <input type="range" class="form-range" id="customRange1">
-    </form>
 </div>
