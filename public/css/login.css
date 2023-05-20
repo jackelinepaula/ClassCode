@@ -1,0 +1,21 @@
+.login-container{
+    height: 100vh;
+    width: 100vw;
+}
+
+.login-container form{
+    width: 30%;
+    border-radius: 8px;
+}
+
+.login-container form div div, .login-container form div button{
+    width: 100%;
+}
+
+.links-form a{
+    text-decoration: none;
+}
+.links-form a:hover{
+    text-decoration: none;
+    color: var(--yellow);
+}
