@@ -1,12 +1,4 @@
 
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
-.container-sm{
-    max-width: 980px;
-}
 
 .coluna{
     display: flex;

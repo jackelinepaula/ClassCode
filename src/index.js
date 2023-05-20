@@ -21,17 +21,21 @@ app.set("view engine" , pageExtensao)
 // ROTAS
 
 app.get("/", function(req, res) {
-    res.render("index", {
+    res.render("home", {
         //Esse trecho aqui ta passando o caminho do css como 
         //parâmetro pro handlebars
-        style: "/css/style.css"
+        style: "/css/home.css"
     })
 })
 app.get("/comprar", function(req, res) {
-    res.render("comprar_minutos")
+    res.render("comprar_minutos", {
+        style: "/css/minuto.css"
+    })
 })
 app.get("/novaduvida", function(req, res) {
-    res.render("tela_duvida")
+    res.render("tela_duvida", {
+        style: "/css/duvida.css"
+    })
 })
 
 app.get("/dashtutor", function(req, res){

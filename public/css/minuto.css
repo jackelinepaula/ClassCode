@@ -1,0 +1,54 @@
+
+/* Mini-perfil */
+/* Main - Layout */
+.section-user .user-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-user .user-container .img{
+    width: 6%;
+}
+
+.section-user .user-container .img img{
+    width: 100%;
+    border-radius: 50%;
+}
+/* Main - Layout */
+
+/* Card */
+.section-compra{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 2rem;
+}
+
+.section-compra .title{
+    width: 100%;
+}
+
+.section-compra .card{
+    width: 320px;
+    height: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.section-compra .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.section-compra .card-body label{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--purple);
+}  
