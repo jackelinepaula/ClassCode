@@ -1,7 +1,78 @@
 const express = require("express")
 const handlebars = require("express-handlebars").engine
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
 
 const app = express()
+
+//AUTENTICAÇÃO PARA ÁREA RSTRITA
+
+
+// Configuração do Express
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'seu_segredo_aqui',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+    function (username, password, done) {
+        // Aqui você pode verificar as credenciais do usuário com o banco de dados
+        if (username === 'usuario' && password === 'senha') {
+            return done(null, {
+                id: 1,
+                name: 'Usuario'
+            });
+        } else {
+            return done(null, false);
+        }
+    }
+));
+
+// Serialização e desserialização do usuário
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    // Aqui você deve implementar a lógica para recuperar o usuário com base no ID
+    // Por exemplo, você pode consultar um banco de dados
+    const user = {
+        id: 1,
+        username: 'admin'
+    };
+    done(null, user);
+});
+
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect('/login');
+  }
+
+// Rota de login
+app.post('/login',
+    passport.authenticate('local', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/'
+    })
+);
+
+app.get('/dashboard', isAuthenticated, function(req, res) {
+    res.send('Você está autenticado! Bem-vindo ao dashboard.');
+  });
+
 
 //Declação de variáveis
 const portaRede = 8081; //define a porta de rede que será usada
@@ -16,7 +87,7 @@ app.set("views", "./src/views")
 app.engine(pageExtensao, handlebars({
     defaultLayout: "main",
 }))
-app.set("view engine" , pageExtensao)
+app.set("view engine", pageExtensao)
 
 // ROTAS
 
@@ -57,11 +128,19 @@ app.get("/dashtutor", function(req, res){
         style: "/css/dashtutor.css"
     })
 })
+
+app.get("/escolhertutor", function(req, res) {
+    res.render("escolha_tutores", {
+        style: "/css/tutores.css"
+    })
+})
+
 app.get("/comprar", function(req, res) {
     res.render("comprar_minutos", {
         style: "/css/minuto.css"
     })
 })
+
 app.get("/novaduvida", function(req, res) {
     res.render("tela_duvida", {
         style: "/css/duvida.css"
