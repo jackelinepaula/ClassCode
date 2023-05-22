@@ -1,11 +1,13 @@
 .login-container{
     height: 100vh;
     width: 100vw;
+    background-color: var(--black1);
 }
 
 .login-container form{
     width: 30%;
     border-radius: 8px;
+    background-color: var(--black2);
 }
 
 .login-container form div div, .login-container form div button{
@@ -18,4 +20,9 @@
 .links-form a:hover{
     text-decoration: none;
     color: var(--yellow);
+}
+
+.form-control{
+    background-color: var(--black1);
+    color: var(--white1);
 }
