@@ -4,8 +4,8 @@
 .duvidas-container form {}
 
 .duvidas-container form textarea {
-    background-color: var(--color1);
-    color: var(--color3);
+    background-color: var(--black1);
+    color: var(--White1);
     border-radius: 6px;
     border: 0;
 }

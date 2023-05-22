@@ -5,21 +5,22 @@ root {
 * {
     margin: 0;
     padding: 0;
-    --color1: #212023;
-    --color2: #29282B;
-    --color3: #F3F4F6;
+    --black1: #212023;
+    --black2: #29282B;
+    --white1: #F3F4F6;
+    --white2: #B5BDC9;
     --purple: #6F38C5;
     --yellow: #FFC107;
 }
 
 ::-webkit-scrollbar {
-    background-color: var(--color1);
+    background-color: var(--black1);
     width: 10px;
     height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color2);
+    background-color: var(--black2);
     border-radius: 6px;
     transition: 200ms;
 }
@@ -30,7 +31,7 @@ root {
 }
 
 ::-webkit-scrollbar-corner{
-    background-color: var(--color1);
+    background-color: var(--black1);
 }
 
 /* body {
@@ -64,7 +65,7 @@ root {
 
 
 .sidebar-menu {
-    background-color: var(--color2);
+    background-color: var(--black2);
     width: 120px;
     height: 100vh;
 
@@ -90,7 +91,7 @@ root {
 }
 
 .sidebar-menu ul li a {
-    color: var(--color3);
+    color: var(--white1);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -113,6 +114,24 @@ root {
 
 .main {
     margin-left: 120px;
+    background: var(--black1);
     /* padding: 150px 0;
     width: calc(100% - 120px); */
+    min-height: 100vh;
 }
+
+.card{
+    color: var(--white1);
+    border: 0px;
+    background-color: var(--black2);
+    box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.05);
+}
+
+.desc{
+    color: var(--white2);
+}
+
+.titulo-cor{
+    color: var(--white1);
+}
+

@@ -109,8 +109,9 @@
 
 .painel .container .card .card-link{
     text-decoration: none;
-    color: #000;
-    border: 1px solid #242424;
+    background-color: var(--black1);
+    color: var(--white1);
+    border: 0px solid #242424;
     padding: 2px;
     border-radius: 4px;
 }
