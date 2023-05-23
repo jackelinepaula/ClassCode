@@ -111,12 +111,12 @@ root {
 .sidebar-menu ul li .material-symbols-rounded {
     font-size: 2rem;
 } 
-
+/* 
 .main {
     margin-left: 120px;
     background: var(--black1);
-    /* padding: 150px 0;
-    width: calc(100% - 120px); */
+    padding: 150px 0;
+    width: calc(100% - 120px);
     min-height: 100vh;
 }
 
@@ -134,4 +134,6 @@ root {
 .titulo-cor{
     color: var(--white1);
 }
+ */
 
+ 
