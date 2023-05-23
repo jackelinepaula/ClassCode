@@ -1,0 +1,34 @@
+.lista-tutores{
+    width: 600px;
+}
+
+.lista-tutores .categoria{
+    width: 80px;
+}
+
+.lista-tutores a{
+    text-decoration: none;
+}
+
+.item-tutor .user-info .img {
+    width: 70px;
+}
+
+.item-tutor .user-info .img img{
+    width: 100%;
+}
+/* Textos */
+.item-tutor .user-info .texts p{
+    margin: 0;
+}
+
+.item-tutor .user-info .texts .title-user{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Stars */
+.item-tutor .stars p{
+    font-size: 18px;
+    height: 8px;
+}
