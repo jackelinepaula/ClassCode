@@ -34,10 +34,10 @@ root {
     background-color: var(--black1);
 }
 
-/* body {
-    background-color: var(--color1);
-    color: var(--color3);
-} */
+body {
+    background-color: var(--black);
+    color: var(--white1);
+}
 
 .container-sm{
     max-width: 980px;
@@ -111,7 +111,7 @@ root {
 .sidebar-menu ul li .material-symbols-rounded {
     font-size: 2rem;
 } 
-/* 
+
 .main {
     margin-left: 120px;
     background: var(--black1);
@@ -126,7 +126,7 @@ root {
     background-color: var(--black2);
     box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.05);
 }
-
+/* 
 .desc{
     color: var(--white2);
 }
