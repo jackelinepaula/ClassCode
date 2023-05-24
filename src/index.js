@@ -147,9 +147,9 @@ app.get("/aluno/duvida", function(req, res) {
     })
 })
 
-app.get("/aluno/duvida/historico", function(req, res) {
-    res.render("tela_duvida", {
-        style: "/css/duvida.css"
+app.get("/aluno/historico", function(req, res) {
+    res.render("historico", {
+        style: "/css/historico.css"
     })
 })
 
