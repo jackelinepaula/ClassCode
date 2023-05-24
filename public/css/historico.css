@@ -16,3 +16,38 @@
 .content-historico .card .card-categorias .categoria {
     background-color: var(--black1);
 }
+
+/* Painel card texts */
+
+.card .card-subtitle{
+    margin-top: 0.5rem;
+    display: flex;
+    align-items:center;
+}
+
+.card .card-subtitle span{
+    color: #38C557;
+}
+
+.card .card-link{
+    text-decoration: none;
+    background-color: var(--black1);
+    color: var(--white1);
+    border: 0px solid #242424;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.card .card-body img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: solid 4px white;
+}
+
+
+.card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
