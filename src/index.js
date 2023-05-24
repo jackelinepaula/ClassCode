@@ -109,7 +109,7 @@ app.get("/cadastro", function(req, res){
     })
 })
 
-app.get("/dashaluno", function(req, res) {
+app.get("/aluno", function(req, res) {
     app.engine(pageExtensao, handlebars({
         defaultLayout: "main",
     }))
@@ -120,7 +120,7 @@ app.get("/dashaluno", function(req, res) {
     })
 })
 
-app.get("/dashtutor", function(req, res){
+app.get("/tutor", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "main",
     }))
@@ -129,21 +129,27 @@ app.get("/dashtutor", function(req, res){
     })
 })
 
-app.get("/escolhertutor", function(req, res) {
+app.get("/aluno/tutor", function(req, res) {
     res.render("escolha_tutores", {
         style: "/css/tutores.css"
     })
 })
 
-app.get("/comprar", function(req, res) {
+app.get("/aluno/comprar", function(req, res) {
     res.render("comprar_minutos", {
         style: "/css/minuto.css"
     })
 })
 
-app.get("/novaduvida", function(req, res) {
+app.get("/aluno/duvida", function(req, res) {
     res.render("tela_duvida", {
         style: "/css/duvida.css"
+    })
+})
+
+app.get("/aluno/historico", function(req, res) {
+    res.render("historico", {
+        style: "/css/historico.css"
     })
 })
 
