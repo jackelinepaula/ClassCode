@@ -1,13 +1,13 @@
 .login-container{
     height: 100vh;
     width: 100vw;
-    background-color: var(--black1);
+    background-color: var(--color3);
 }
 
 .login-container form{
     width: 30%;
     border-radius: 8px;
-    background-color: var(--black2);
+    background-color: var(--color4);
 }
 
 .login-container form div div, .login-container form div button{
@@ -23,6 +23,6 @@
 }
 
 .form-control{
-    background-color: var(--black1);
-    color: var(--white1);
+    background-color: var(--color3);
+    color: var(--color12);
 }
