@@ -1,0 +1,70 @@
+<div class="container-sm">
+
+    <div class="section-title mb-3">
+        <div class="title-page d-flex gap-2 align-items-center">
+            <a href="">
+                <span class="material-symbols-rounded">arrow_back</span>
+            </a>
+            <h4>Criar nova dúvida</h4>
+        </div>
+
+        <div class="user-container">
+            <span class="user-name">Olá, Luffy!</span>
+            <div class="img">
+                <img src="/img/crash.png" alt="Imagem de perfil">
+                <i class="status-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <form action="POST" class="card section-duvida p-4">
+        <div>
+            <label for="assunto">Assunto</label>
+            <input type="text" class="assunto" id="assunto" placeholder="Dê um título para sua dúvida">
+        </div>
+        <div>
+            <label>Adicionar imagens</label>
+            <div class="image-container">
+                <label for="inputFile" class="add-img">
+                    <span class="material-symbols-rounded">upload_file</span>
+                    <span>Adicionar</span>
+                    
+                </label>
+            </div>
+            <input type="file" class="inputFile" id="inputFile">
+        </div>
+        <div>
+            <label for="descricao">Descrição</label>
+           <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Descreva detalhadamente no que precisa de ajuda. Lembre-se: as imagens complementam tudo o que você disser aqui"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Criar Dúvida</button>
+    </form>
+</div>
+
+
+<script>
+    function previewImage() {
+        var inputFile = document.getElementById('inputFile');
+        var imageContainer = document.getElementsByClassName('image-container')[0];
+
+        // Verifica se algum arquivo foi selecionado
+        if (inputFile.files && inputFile.files[0]) {
+            var reader = new FileReader();
+
+            // Define uma função para ser executada quando o carregamento do arquivo for concluído
+            reader.onload = function(e) {
+                var image = document.createElement('img');
+                image.src = e.target.result;
+                image.classList.add('preview-image');
+                imageContainer.appendChild(image);
+            };
+
+            // Lê o arquivo como uma URL de dados
+            reader.readAsDataURL(inputFile.files[0]);
+        }
+    }
+
+    // Chama a função de pré-visualização sempre que o campo de entrada de arquivo for alterado
+    document.getElementById('inputFile').addEventListener('change', previewImage);
+</script>

@@ -142,7 +142,7 @@ app.get("/aluno/comprar", function(req, res) {
 })
 
 app.get("/aluno/duvida", function(req, res) {
-    res.render("tela_duvida", {
+    res.render("duvida", {
         style: "/css/duvida.css"
     })
 })
