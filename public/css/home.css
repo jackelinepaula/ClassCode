@@ -1,4 +1,41 @@
+/* Header Top */
 
+.user-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px;
+    padding: 15px 5px 15px 5px;
+    height: 180px;
+}
+
+.user-info-container .coluna {
+    justify-content: center;
+}
+
+.perfil-img {
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+/* Saudações */
+.user-info-container .user-message .titulo-cor{
+    font-size: 20px;
+}
+
+.user-info-container .user-message .desc{
+    font-size: 18px;
+    color: var(--white2);
+}
+
+/* Mini-perfil */
+.user-info-container .user-profile .titulo-cor{
+    font-size: 20px;
+}
+.user-info-container .user-profile .desc{
+    font-size: 18px;
+    color: var(--white2);
+}
 
 /* button {
     background: var(--purple);
@@ -40,25 +77,5 @@
 .user-image {
     height: 180px;
     width: 180px;
-    border-radius: 50%;
-}
-
-
-/* Header Top */
-
-.user-info-container{
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    border: 0px;
-    padding: 15px 5px 15px 5px;
-}
-
-.user-info-container .coluna{
-    justify-content: center;
-}
-
-.perfil-img{
-    padding-left: 10px;
     border-radius: 50%;
 }

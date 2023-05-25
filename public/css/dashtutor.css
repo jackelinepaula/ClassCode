@@ -16,6 +16,7 @@
 .coluna-1 .card{
     width: 190px;
     height: 130px;
+    border: 1px solid #333333;
 }
 
 /* Card mini perfil */
@@ -23,6 +24,8 @@
     width: 440px;
     height: 270px;
     padding: 8px;
+    border: 1px solid #333333;
+
 }
 
 .coluna-2 .card-body{
@@ -76,13 +79,19 @@
 
 /* Painel */
 .painel{
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .painel .container .card{
     width: 300;
     height: 280px;
     padding: 5px;
+    border: 1px solid #333333;
+    cursor: pointer;
+}
+
+.painel .container .card:hover{
+    box-shadow: 0rem 0rem 1.5rem #6e38c533;
 }
 
 /* Painel card texts */
