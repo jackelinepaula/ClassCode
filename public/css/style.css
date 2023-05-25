@@ -88,7 +88,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .sidebar-menu ul li {
@@ -115,7 +115,7 @@ body {
 }
 
 .sidebar-menu ul li .material-symbols-rounded {
-    font-size: 2rem;
+    font-size: 1.6rem;
 } 
 
 .main {
