@@ -2,57 +2,47 @@
 
 .user-info-container {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info-container .desc{
+    color: var(--color8);
+    font-size: 0.8rem;
+}
+
+.user-info-container .user-profile{
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 0px;
-    padding: 15px 5px 15px 5px;
-    height: 180px;
+
+    padding: 0 1rem;
+
+    border-left: solid 2px var(--color1);
+    border-right: solid 2px var(--color1);
 }
 
-.user-info-container .coluna {
-    justify-content: center;
-}
-
-.perfil-img {
-    padding-left: 10px;
+.user-info-container .user-profile .perfil-img{
+    width: 80px;
     border-radius: 50%;
 }
 
-/* Saudações */
-.user-info-container .user-message .titulo-cor{
-    font-size: 20px;
+.user-info-container .user-minutos{
+    display: flex;
+    align-items: center;
 }
-
-.user-info-container .user-message .desc{
-    font-size: 18px;
-    color: var(--white2);
+.user-info-container .user-minutos .minuto-qntd{
+    font-size: 2rem;
 }
-
-/* Mini-perfil */
-.user-info-container .user-profile .titulo-cor{
-    font-size: 20px;
-}
-.user-info-container .user-profile .desc{
-    font-size: 18px;
-    color: var(--white2);
-}
-
-/* button {
-    background: var(--purple);
-    border: 0;
-    border-radius: 10px;
-    color: #fff;
-
-} */
 
 .card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--black2);
+    
     /* border-radius: 6px; */
     padding: 1.5rem 1.5rem;
 }
+
+/* categorias */
 
 .categorias-grid {
     display: grid;
@@ -61,10 +51,13 @@
     width: 100%;
 }
 
-
 .categoria-card {
     width: 100%;
+    text-decoration: none;
+
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -75,7 +68,7 @@
 
 
 .user-image {
-    height: 180px;
-    width: 180px;
+    height: 120px;
+    width: 120px;
     border-radius: 50%;
 }
