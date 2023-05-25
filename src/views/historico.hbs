@@ -1,31 +1,31 @@
 {{!-- bootstrap class --}}
 <div class="container-sm">
 
-    <div class="section-user">
+    <div class="section-title mb-3">
+        <div class="title-page d-flex gap-2 align-items-center">
+            <a href="">
+                <span class="material-symbols-rounded">arrow_back</span>
+            </a>
+            <h4>Histórico</h4>
+        </div>
+
         <div class="user-container">
-            <p class="user-name desc">Luffy</p>
+            <span class="user-name">Olá, Luffy!</span>
             <div class="img">
                 <img src="/img/crash.png" alt="Imagem de perfil">
-                {{!-- Esse aqui vai ser o icon de status <span></span> --}}
+                <i class="status-icon"></i>
             </div>
         </div>
     </div>
 
-    <div class="section-breadcrumb">
-        {{!-- bootstrap class --}}
-        <div class="breadcrumb mb-4 desc">
-            <span>Início / Histórico</span>
-        </div>
-    </div>
 
     <div class="section-historico d-flex flex-column gap-3">
-        <h4>Histórico</h4>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Dúvidas</button>
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tutores</button>
                 <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tutores</button>
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Dúvidas</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -33,8 +33,9 @@
                 <div class="content-duvidas row">
                     <div class="col">
                         <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-2">
-                                <img height="80px" src="/img/crash.png" alt="">
+                            <div class="card-content d-flex justify-content-start gap-3">
+                                <img src="/img/crash.png" alt="">
+                                <i class="status-icon"></i>
                                 <div>
                                     <h4>Crash</h4>
                                     <small>UFABC</small>
@@ -49,8 +50,9 @@
                     </div>
                     <div class="col">
                         <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-2">
+                            <div class="card-content d-flex justify-content-start gap-3">
                                 <img height="80px" src="/img/crash.png" alt="">
+                                <i class="status-icon"></i>
                                 <div>
                                     <h4>Crash</h4>
                                     <small>UFABC</small>
@@ -65,8 +67,9 @@
                     </div>
                     <div class="col">
                         <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-2">
+                            <div class="card-content d-flex justify-content-start gap-3">
                                 <img height="80px" src="/img/crash.png" alt="">
+                                <i class="status-icon"></i>
                                 <div>
                                     <h4>Crash</h4>
                                     <small>UFABC</small>
