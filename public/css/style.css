@@ -1,8 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
 root {
     box-sizing: border-box;
 }
 
 * {
+    font-family: 'Inter';
     margin: 0;
     padding: 0;
     --black1: #212023;
@@ -40,7 +44,7 @@ body {
 }
 
 .container-sm{
-    max-width: 980px;
+    max-width: 1080px;
 }
 
 .section-user .user-container{
@@ -124,9 +128,9 @@ body {
 
 .card{
     color: var(--white1);
-    border: 0px;
+    border: none;
+    border-radius: 4px;
     background-color: var(--black2);
-    box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.05);
 }
 /* 
 .desc{

@@ -1,17 +1,31 @@
 .lista-tutores{
     width: 600px;
+    margin-top: 2rem;
+    
+    border: 1px solid var(--black2);
+    background-color: transparent;
 }
 
 .lista-tutores .categoria{
-    width: 80px;
+    width: min-content;
+    background-color: var(--purple);
+    border: none;
+    border-radius: 4px;
 }
 
-.lista-tutores a{
+.lista-tutores .item-tutor{
     text-decoration: none;
+    border: 1px solid var(--black2);
+    padding: 5px 8px 5px 8px;
+}
+
+.lista-tutores .item-tutor:hover{
+    color: var(--white1);
+    border: 1px solid #8b8b8b;
 }
 
 .item-tutor .user-info .img {
-    width: 70px;
+    width: 60px;
 }
 
 .item-tutor .user-info .img img{
@@ -23,12 +37,20 @@
 }
 
 .item-tutor .user-info .texts .title-user{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
+}
+.item-tutor .user-info .texts .school-user{
+    font-size: 14px;
+    color: var(--white2);
 }
 
 /* Stars */
 .item-tutor .stars p{
-    font-size: 18px;
-    height: 8px;
+    font-size: 16px;
+    height: 6px;
+}
+
+.item-tutor .stars .icon{
+    color: var(--yellow);
 }
