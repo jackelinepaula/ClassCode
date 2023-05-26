@@ -141,7 +141,7 @@ app.get("/aluno/comprar", function(req, res) {
     })
 })
 
-app.get("/aluno/duvida", function(req, res) {
+app.get("/aluno/tutor/duvida", function(req, res) {
     res.render("duvida", {
         style: "/css/duvida.css"
     })

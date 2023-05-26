@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
 
 root {
@@ -35,12 +36,12 @@ root {
 ::-webkit-scrollbar-thumb {
     background-color: var(--color2);
     border-radius: 6px;
-    transition: 200ms;
+    transition: .2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-    transition: 200ms;
+    transition: .2s;
 }
 
 ::-webkit-scrollbar-corner{
@@ -81,7 +82,7 @@ body {
 
 .sidebar-menu ul li {
     list-style: none;
-    transition: 200ms;
+    transition: .2s;
 }
 
 .sidebar-menu ul li a {
@@ -90,20 +91,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 200ms;
+    transition: .2s;
+    font-size: 15px;
+    padding: 2px;
 }
 
 .sidebar-menu ul li a:hover{
     list-style: none;
     color: var(--purple);
-    transition: 200ms;
+    transition: .2s;
 }
 .sidebar-menu ul li a .active {
     color: var(--yellow);
 }
 
 .sidebar-menu ul li .material-symbols-rounded {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 } 
 
 .container-sm{
@@ -119,12 +122,12 @@ body {
 .section-title .title-page a{
     text-decoration: none;
     color: var(--color10);
-    transition: 200ms;
+    transition: .2s;
 }
 .section-title .title-page a:hover{
     text-decoration: none;
     color: var(--color12);
-    transition: 200ms;
+    transition: .2s;
 }
 
 .section-title .user-container{

@@ -1,3 +1,5 @@
+
+
 *{
     transition: .2s;
 }
@@ -19,7 +21,7 @@
 
 .user-info-container .desc{
     color: var(--color8);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .user-info-container .user-profile{
@@ -71,6 +73,13 @@
 }
 
 /* categorias */
+
+.categorias-container .desc{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+} 
 
 .categorias-grid {
     display: grid;
