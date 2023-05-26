@@ -116,7 +116,7 @@ app.get("/aluno", function(req, res) {
     res.render("dash_aluno", {
         //Esse trecho aqui ta passando o caminho do css como 
         //parâmetro pro handlebars
-        style: "/css/home.css"
+        style: "/css/dashaluno.css"
     })
 })
 
