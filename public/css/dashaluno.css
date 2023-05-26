@@ -1,3 +1,7 @@
+*{
+    transition: .2s;
+}
+
 /* Header Top */
 
 .user-info-container {
@@ -5,6 +9,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.user-info-container .one{
+
+    border-left: solid 2px var(--color5);
+    border-right: solid 2px var(--color5);
 }
 
 .user-info-container .desc{
@@ -19,26 +29,44 @@
 
     padding: 0 1rem;
 
-    border-left: solid 2px var(--color1);
-    border-right: solid 2px var(--color1);
 }
 
-.user-info-container .user-profile .perfil-img{
-    width: 80px;
+.user-info-container .user-profile .img {
+    position: relative;
+    width: 70px;
     border-radius: 50%;
+}
+
+.user-info-container .user-profile .img img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user-info-container .user-profile .img span{
+    position: absolute;
+    color: #09a33d;
+    bottom: -5px;
+    right: -5px;
 }
 
 .user-info-container .user-minutos{
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 .user-info-container .user-minutos .minuto-qntd{
     font-size: 2rem;
 }
 
+.user-info-container .user-minutos .buy{
+    background-color: var(--purple);
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .card {
-    
-    /* border-radius: 6px; */
+    border-radius: 4px;
     padding: 1.5rem 1.5rem;
 }
 
@@ -66,6 +94,11 @@
     width: 60px;
 }
 
+.categoria-card:hover{
+    color: var(--color12);
+    transition: .2s;
+    border: 1px solid #8b8b8b;
+}
 
 .user-image {
     height: 120px;

@@ -1,3 +1,7 @@
+*{
+    transition: .2s;
+}
+
 .lista-tutores{
     width: 600px;
     margin-top: 2rem;
@@ -17,6 +21,7 @@
     text-decoration: none;
     border: 1px solid var(--color3);
     padding: 5px 8px 5px 8px;
+    border: 1px solid var(--color5);
 }
 
 .lista-tutores .item-tutor:hover{
@@ -25,8 +30,17 @@
 }
 
 .item-tutor .user-info .img {
+    position: relative;
     width: 60px;
 }
+
+.item-tutor .user-info .img span{
+    position: absolute;
+    color: #09a33d;
+    bottom: -5px;
+    right: -5px;
+}
+
 
 .item-tutor .user-info .img img{
     width: 100%;

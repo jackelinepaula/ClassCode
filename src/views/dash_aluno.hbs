@@ -1,36 +1,41 @@
 <div class="container-sm">
 
-    <div class="card row user-info-container ">
+    <div class="card row user-info-container d-flex flex-row">
         <div class="col-sm">
-            <div class="user-message d-flex flex-column">
+            <div class="user-message">
                 <h5 class="titulo-cor">Olá, Luffy</h5>
                 <small class="desc">Quais são as dúvidas de hoje?</small>
             </div>
         </div>
 
-        <div class="col-sm">
-            <div class="user-profile d-flex ">
-                <div class="text d-flex flex-column justify-content-center">
+        <div class="col-sm one">
+            <div class="user-profile">
+                <div>
                     <h5 class="titulo-cor">Monkey D. Luffy</h5>
                     <small class="desc">Fatec Zona Leste</small>
                 </div>
-                <img class="perfil-img" src="/img/crash.png" alt="">
+                <div class="img">
+                    <span class="material-symbols-sharp">
+                        fiber_manual_record
+                    </span>
+                    <img src="/img/Luffy.png" alt="Imagem de perfil do tutor">
+                </div>
             </div>
         </div>
 
         <div class="col-sm">
-            <div class="user-minutos d-flex justify-content-center gap-4">
+            <div class="user-minutos">
                 <div class="text d-flex flex-column">
-                    <small class="desc">Você Possui</small>
-                    <h5><span class="minuto-qntd">23</span>Min</h5>
+                    <small class="desc">Você possui</small>
+                    <h5><span class="minuto-qntd">20</span>min</h5>
                 </div>
-                <a href="/comprar"><button class="p-2 btn btn-primary">Comprar Mais</button></a>
+                <a href="/aluno/comprar"><button class="p-2 btn btn-primary buy">Comprar</button></a>
             </div>
         </div>
     </div>
 
     <div class="categorias-container pt-4 gap-3 d-flex flex-column">
-        <h5 class="desc">Em qual linguagem deseja ajuda hoje?</h5>
+        <h5 class="desc">Em qual tecnologia deseja ajuda hoje?</h5>
         <div class="categorias-grid ">
             <a href="#" class="card p-3 categoria-card">
                 <span>HTML</span>
