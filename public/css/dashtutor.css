@@ -1,3 +1,7 @@
+*{
+    transition: .2s;
+}
+
 .coluna{
     display: flex;
     width: min-content;

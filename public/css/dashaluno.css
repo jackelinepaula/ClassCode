@@ -1,3 +1,7 @@
+*{
+    transition: .2s;
+}
+
 /* Header Top */
 
 .user-info-container {
