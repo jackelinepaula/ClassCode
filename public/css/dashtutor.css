@@ -8,6 +8,8 @@
     padding: 0;
 }
 
+
+
 .col-sm{
     padding: 0px;
 }
@@ -23,6 +25,11 @@
     border: 1px solid #333333;
 }
 
+.coluna-1 .coluna .card .card-title{
+    font-size: 1.8rem;
+}
+
+
 /* Card mini perfil */
 .coluna-2 .card{
     width: 440px;
@@ -36,7 +43,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
 }
 
 .mini-perfil .card-content{
@@ -46,9 +52,18 @@
 }
 
 .mini-perfil .card-img{
+    position: relative;
     display: flex;
     align-items: center;
     width: 30%;
+}
+
+.mini-perfil .card-img span{
+    position: absolute;
+    color: var(--green);
+    bottom: 0;
+    right: 1rem;
+    font-size: 1.8rem;
 }
 
 .mini-perfil .card-img img{
@@ -56,6 +71,12 @@
     width: 100px;
 }
 
+.mini-perfil .card-tag{
+    background-color: var(--color3);
+    width: min-content;
+    padding: 2px 4px 2px 4px;
+    border-radius: 4px;
+}
 
 /* Textos */
 .mini-perfil .card-text h5.nome{
@@ -84,6 +105,11 @@
 /* Painel */
 .painel{
     margin-top: 2.5rem;
+}
+
+.painel .title-painel .desc{
+    color: var(--color10);
+    margin-bottom: 2rem;
 }
 
 .painel .container .card{
