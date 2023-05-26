@@ -67,6 +67,8 @@ body {
     align-items: center;
 
     position: fixed;
+
+    border-right: 1px solid var(--color5);
 }
 
 .sidebar-menu ul {
