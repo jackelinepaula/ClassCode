@@ -33,7 +33,7 @@ passport.use(new LocalStrategy(
         if (username === 'usuario@gmail.com' && password === 'senha') {
             return done(null, {
                 id: 1,
-                name: 'Usuario'
+                name: 'aluno'
             });
         } else {
             return done(null, false);
@@ -66,7 +66,7 @@ function isAuthenticated(req, res, next) {
 
 // Rota de login, aqui é definido se X usuário é aluno ou tutor e pra onde ele será redirecionado
 app.post('/login',
-    passport.authenticate('aluno', {
+    passport.authenticate('local', {
         successRedirect: '/aluno/dash',
         failureRedirect: '/'
     }),
@@ -124,7 +124,7 @@ app.get("/cadastro", function(req, res){
     })
 })
 
-app.get("/aluno", function(req, res) {
+app.get("/aluno/dash", function(req, res) {
     app.engine(pageExtensao, handlebars({
         defaultLayout: "main",
     }))
@@ -135,7 +135,7 @@ app.get("/aluno", function(req, res) {
     })
 })
 
-app.get("/tutor", function(req, res){
+app.get("/tutor/dash", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "main",
     }))
