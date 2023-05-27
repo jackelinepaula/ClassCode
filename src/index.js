@@ -22,13 +22,15 @@ app.use(passport.session());
 app.use(express.urlencoded({
     extended: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(
     function (username, password, done) {
         // Aqui você pode verificar as credenciais do usuário com o banco de dados
-        if (username === 'usuario' && password === 'senha') {
+        // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
+        if (username === 'usuario@gmail.com' && password === 'senha') {
             return done(null, {
                 id: 1,
                 name: 'Usuario'
@@ -49,28 +51,41 @@ passport.deserializeUser(function (id, done) {
     // Por exemplo, você pode consultar um banco de dados
     const user = {
         id: 1,
-        username: 'admin'
+        username: 'aluno'
     };
     done(null, user);
 });
 
-function isAuthenticated(req, res, next) {
+function isAuthenticated(req, res, next) { 
+    // Caso alguém acessar uma URL restrita, e verificado se ele tem acesso, se não, volta pro login
     if (req.isAuthenticated()) {
       return next();
     }
     res.redirect('/login');
   }
 
-// Rota de login
+// Rota de login, aqui é definido se X usuário é aluno ou tutor e pra onde ele será redirecionado
 app.post('/login',
-    passport.authenticate('local', {
-        successRedirect: '/dashboard',
+    passport.authenticate('aluno', {
+        successRedirect: '/aluno/dash',
+        failureRedirect: '/'
+    }),
+    passport.authenticate('tutor', {
+        successRedirect: '/tutor/dash',
         failureRedirect: '/'
     })
 );
 
-app.get('/dashboard', isAuthenticated, function(req, res) {
-    res.send('Você está autenticado! Bem-vindo ao dashboard.');
+app.get('/aluno', isAuthenticated, function(req, res) { 
+    // Verifica a autenticação e envia o ussuario pra dash
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "main",
+    }))
+    res.render("dash_aluno", {
+        //Esse trecho aqui ta passando o caminho do css como 
+        //parâmetro pro handlebars
+        style: "/css/dashaluno.css"
+    })
   });
 
 
