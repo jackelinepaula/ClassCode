@@ -6,10 +6,7 @@ const session = require('express-session');
 
 const app = express()
 
-//AUTENTICAÇÃO PARA ÁREA RSTRITA
-
-
-// Configuração do Express
+// Configuração de Session do usuário
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: 'seu_segredo_aqui',
@@ -89,6 +86,8 @@ app.get('/aluno', isAuthenticated, function(req, res) {
   });
 
 
+
+
 //Declação de variáveis
 const portaRede = 8081; //define a porta de rede que será usada
 const pageExtensao = "hbs" // define o nome da extensão dos arquivos
@@ -105,7 +104,6 @@ app.engine(pageExtensao, handlebars({
 app.set("view engine", pageExtensao)
 
 // ROTAS
-
 app.get("/", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "login",
