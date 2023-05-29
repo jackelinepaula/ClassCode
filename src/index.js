@@ -30,21 +30,42 @@ passport.use(new LocalStrategy(
         // Aqui você pode verificar as credenciais do usuário com o banco de dados
         // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
 
-        aluno.findAll({
+        try {
+            aluno.findAll({
+                where:{
+                    'emailAluno': username
+                }
+            }).then((data) => {
+                const aluno = data[0].dataValues
+                console.log(aluno);
+                if (username === aluno.emailAluno && password === 'senha') {
+                    return done(null, {
+                        id: aluno.idAluno,
+                        name: aluno.nomeAluno
+                    });
+                }
+            })
+
+            // tutor.findAll({
+            //     where:{
+            //         'emailTutor': username
+            //     }
+            // }).then((data) => {
+            //     const tutor = data[0].dataValues
+            //     console.log(tutor);
+            //     if (username === tutor.emailTutor && password === 'senha') {
+            //         return done(null, {
+            //             id: tutor.idTutor,
+            //             name: tutor.nomeTutor
+            //         });
+            //     }
+            // })
             
-        }).then((data) => {
-            console.log(data)
-        })
-
-
-        if (username === 'usuario@gmail.com' && password === 'senha') {
-            return done(null, {
-                id: 1,
-                name: 'aluno'
-            });
-        } else {
+        } catch (error) {
+            console.log(error);
             return done(null, false);
         }
+
     }
 ));
 
@@ -56,10 +77,18 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (id, done) {
     // Aqui você deve implementar a lógica para recuperar o usuário com base no ID
     // Por exemplo, você pode consultar um banco de dados
-    const user = {
-        id: 1,
-        username: 'aluno'
-    };
+    const user = {};
+
+    // aluno.findAll({
+            
+    // }).then((data) => {
+    //     user = {
+    //         id: data.dataValues,
+    //         userEmail: 'aluno'
+    //     }
+    // })
+
+    ;
     done(null, user);
 });
 

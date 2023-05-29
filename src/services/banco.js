@@ -140,10 +140,10 @@ aula.belongsTo(aluno, {
 })
 
 
-db.sequelize.sync({force: true})
-    .then(() => {
-        console.log("[Sequelize] Tabelas Criadas com sucesso");
-    })
+// db.sequelize.sync({force: true})
+//     .then(() => {
+//         console.log("[Sequelize] Tabelas Criadas com sucesso");
+//     })
 
 
 module.exports = {
