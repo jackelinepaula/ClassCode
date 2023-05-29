@@ -4,6 +4,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
+const {aluno, tutor} = require("./services/banco")
+
 const app = express()
 
 // Configuração de Session do usuário
@@ -27,6 +29,14 @@ passport.use(new LocalStrategy(
     function (username, password, done) {
         // Aqui você pode verificar as credenciais do usuário com o banco de dados
         // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
+
+        aluno.findAll({
+            
+        }).then((data) => {
+            console.log(data)
+        })
+
+
         if (username === 'usuario@gmail.com' && password === 'senha') {
             return done(null, {
                 id: 1,
@@ -58,7 +68,7 @@ function isAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
-    res.redirect('/login');
+    res.redirect('/');
   }
 
 // Rota de login, aqui é definido se X usuário é aluno ou tutor e pra onde ele será redirecionado
