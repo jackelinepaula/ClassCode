@@ -4,12 +4,11 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
+const {aluno, tutor} = require("./services/banco")
+
 const app = express()
 
-//AUTENTICAÇÃO PARA ÁREA RSTRITA
-
-
-// Configuração do Express
+// Configuração de Session do usuário
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: 'seu_segredo_aqui',
@@ -30,14 +29,43 @@ passport.use(new LocalStrategy(
     function (username, password, done) {
         // Aqui você pode verificar as credenciais do usuário com o banco de dados
         // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
-        if (username === 'usuario@gmail.com' && password === 'senha') {
-            return done(null, {
-                id: 1,
-                name: 'aluno'
-            });
-        } else {
+
+        try {
+            aluno.findAll({
+                where:{
+                    'emailAluno': username
+                }
+            }).then((data) => {
+                const aluno = data[0].dataValues
+                console.log(aluno);
+                if (username === aluno.emailAluno && password === 'senha') {
+                    return done(null, {
+                        id: aluno.idAluno,
+                        name: aluno.nomeAluno
+                    });
+                }
+            })
+
+            // tutor.findAll({
+            //     where:{
+            //         'emailTutor': username
+            //     }
+            // }).then((data) => {
+            //     const tutor = data[0].dataValues
+            //     console.log(tutor);
+            //     if (username === tutor.emailTutor && password === 'senha') {
+            //         return done(null, {
+            //             id: tutor.idTutor,
+            //             name: tutor.nomeTutor
+            //         });
+            //     }
+            // })
+            
+        } catch (error) {
+            console.log(error);
             return done(null, false);
         }
+
     }
 ));
 
@@ -49,10 +77,18 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (id, done) {
     // Aqui você deve implementar a lógica para recuperar o usuário com base no ID
     // Por exemplo, você pode consultar um banco de dados
-    const user = {
-        id: 1,
-        username: 'aluno'
-    };
+    const user = {};
+
+    // aluno.findAll({
+            
+    // }).then((data) => {
+    //     user = {
+    //         id: data.dataValues,
+    //         userEmail: 'aluno'
+    //     }
+    // })
+
+    ;
     done(null, user);
 });
 
@@ -61,7 +97,7 @@ function isAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }
-    res.redirect('/login');
+    res.redirect('/');
   }
 
 // Rota de login, aqui é definido se X usuário é aluno ou tutor e pra onde ele será redirecionado
@@ -89,6 +125,8 @@ app.get('/aluno', isAuthenticated, function(req, res) {
   });
 
 
+
+
 //Declação de variáveis
 const portaRede = 8081; //define a porta de rede que será usada
 const pageExtensao = "hbs" // define o nome da extensão dos arquivos
@@ -105,7 +143,6 @@ app.engine(pageExtensao, handlebars({
 app.set("view engine", pageExtensao)
 
 // ROTAS
-
 app.get("/", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "login",
