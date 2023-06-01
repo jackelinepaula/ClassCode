@@ -5,6 +5,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
 const {aluno, tutor} = require("./services/banco")
+const bycript = require("bcryptjs");
+const { where } = require("sequelize");
 
 const app = express()
 
@@ -29,7 +31,6 @@ passport.use(new LocalStrategy(
     function (username, password, done) {
         // Aqui você pode verificar as credenciais do usuário com o banco de dados
         // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
-
         try {
             aluno.findAll({
                 where:{
@@ -38,7 +39,7 @@ passport.use(new LocalStrategy(
             }).then((data) => {
                 const aluno = data[0].dataValues
                 console.log(aluno);
-                if (username === aluno.emailAluno && password === 'senha') {
+                if (username === aluno.emailAluno && password === aluno.senhaAluno) {
                     return done(null, {
                         id: aluno.idAluno,
                         name: aluno.nomeAluno
@@ -111,6 +112,43 @@ app.post('/login',
         failureRedirect: '/'
     })
 );
+
+app.post('/insert', async (req, res) => {
+    const {username, email, senha} = req.body
+
+    console.log(req.body);
+
+    try {
+        const dadoExistente = await aluno.findOne({
+            where:{
+                'emailAluno': email
+            }
+        })
+
+        if (!dadoExistente) {
+            aluno.create({
+                nomeAluno: username,
+                emailAluno: email,
+                senhaAluno: senha
+            }).then(() => {
+                console.log("Cadastrado", username, email, senha);
+            })
+            res.redirect("/aluno")
+        }
+    } catch (error) {
+        
+    }
+
+    if ("aluno"){
+    
+
+    }
+
+    if ("tutor"){
+
+    }
+
+});
 
 app.get('/aluno', isAuthenticated, function(req, res) { 
     // Verifica a autenticação e envia o ussuario pra dash

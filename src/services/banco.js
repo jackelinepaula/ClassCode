@@ -13,6 +13,7 @@ const aluno = db.sequelize.define("alunos", {
     emailAluno:{
         type: db.Sequelize.STRING
     },
+    senhaAluno : { type : db.Sequelize.STRING },
     instEnsinoAluno: {
         type: db.Sequelize.STRING
     },
@@ -36,6 +37,7 @@ const tutor = db.sequelize.define("tutores", {
     instEnsinoTutor: {
         type: db.Sequelize.STRING
     },
+    senhaTutor : { type : db.Sequelize.STRING },
     statusDisponibilidade: {
         type: db.Sequelize.STRING
     },
