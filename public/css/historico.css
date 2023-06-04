@@ -28,6 +28,46 @@
     font-weight: 600;
 }
 
+/* Aulas - Em espera e feitas */
+
+.aulas .card{
+    width: 300;
+    height: 280px;
+    padding: 5px;
+    /* border: 1px solid #333333; */
+    cursor: pointer;
+}
+
+.aulas .card:hover{
+    /* box-shadow: 0rem 0rem 1.5rem #6e38c533; */
+    border: 1px solid #8b8b8b;
+}
+
+/* Painel card texts */
+
+.aulas .card .card-text{
+    margin-top: 1rem;
+}
+
+.aula .card .links{
+    margin-top: 2rem;
+}
+
+.aulas .card .card-link{
+    text-decoration: none;
+    background-color: var(--color3);
+    color: var(--color11);
+    border: 0px solid #242424;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.aulas .card img{
+    width: 50px;
+    margin-top: 2rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
 
 /* Tutores */
 .tutores .card{
