@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:regular,italic,700,700italic);
 
 root {
     box-sizing: border-box;
@@ -69,7 +70,7 @@ body {
 
     position: fixed;
 
-    border-right: 1px solid var(--color5);
+    /* border-right: 1px solid var(--color5); */
 }
 
 .sidebar-menu ul {
@@ -183,7 +184,7 @@ body {
 
 .card{
     color: var(--color12);
-    border: 1px solid var(--color5);
+    /* border: 1px solid var(--color5); */
     background-color: var(--color4);
     /* box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.05); */
 }

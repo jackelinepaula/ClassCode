@@ -11,6 +11,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    height: 9rem;
 }
 
 .user-info-container .one{
@@ -65,7 +66,14 @@
     border: none;
     font-size: 15px;
     font-weight: 500;
+    width: 6rem;
+    margin-top: 1rem;
+    border-radius: 4px
 }
+.user-info-container .user-minutos .buy:hover{
+    background-color: #671ec7
+}
+
 
 .card {
     border-radius: 4px;
@@ -75,10 +83,12 @@
 /* categorias */
 
 .categorias-container .desc{
+    font-family: 'Space Mono';
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
+
 } 
 
 .categorias-grid {

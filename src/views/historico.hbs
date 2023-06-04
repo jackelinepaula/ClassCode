@@ -19,179 +19,210 @@
     </div>
 
 
-    <div class="section-historico d-flex flex-column gap-3">
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tutores</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Dúvidas</button>
-            </div>
-        </nav>
+    <div class="section-historico d-flex flex-column gap-5">
+
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+            <button class="nav-link active" id="nav-espera-tab" data-bs-toggle="tab" data-bs-target="#nav-espera"
+                type="button" role="tab" aria-controls="nav-espera" aria-selected="false">Aguardando um
+                tutor</button>
+
+            <button class="nav-link" id="nav-aula-tab" data-bs-toggle="tab" data-bs-target="#nav-aula"
+                type="button" role="tab" aria-controls="nav-aula" aria-selected="false">Minhas aulas</button>
+
+            <button class="nav-link" id="nav-tutor-tab" data-bs-toggle="tab" data-bs-target="#nav-tutor" type="button"
+                role="tab" aria-controls="nav-tutor" aria-selected="true">Meus tutores</button>
+
+        </div>
+
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                <div class="content-duvidas row">
-                    <div class="col">
-                        <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-3">
-                                <img src="/img/crash.png" alt="">
-                                <i class="status-icon"></i>
-                                <div>
-                                    <h4>Crash</h4>
-                                    <small>UFABC</small>
+            <div class="tab-pane fade show active" id="nav-espera" role="tabpanel" aria-labelledby="nav-espera-tab" tabindex="0">
+                <div class="container aulas ">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
                                 </div>
-                            </div>
-                            <div class="card-categorias d-flex gap-2">
-                                <small class="categoria p-1 rounded">NodeJS</small>
-                                <small class="categoria p-1 rounded">Assembly</small>
-                                <small class="categoria p-1 rounded">Docker</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-3">
-                                <img height="80px" src="/img/crash.png" alt="">
-                                <i class="status-icon"></i>
-                                <div>
-                                    <h4>Crash</h4>
-                                    <small>UFABC</small>
+                        <div class="col-sm ">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
                                 </div>
-                            </div>
-                            <div class="card-categorias d-flex gap-2">
-                                <small class="categoria p-1 rounded">NodeJS</small>
-                                <small class="categoria p-1 rounded">Assembly</small>
-                                <small class="categoria p-1 rounded">Docker</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card d-flex flex-column gap-2 p-3">
-                            <div class="card-content d-flex justify-content-start gap-3">
-                                <img height="80px" src="/img/crash.png" alt="">
-                                <i class="status-icon"></i>
-                                <div>
-                                    <h4>Crash</h4>
-                                    <small>UFABC</small>
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
                                 </div>
-                            </div>
-                            <div class="card-categorias d-flex gap-2">
-                                <small class="categoria p-1 rounded">NodeJS</small>
-                                <small class="categoria p-1 rounded">Assembly</small>
-                                <small class="categoria p-1 rounded">Docker</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Centralizar div</h5>
-                                <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs, pois o
-                                    maluco do meu prof...
-                                </p>
-                                <div class="links">
-                                    <a href="#" class="card-link">NodeJS</a>
-                                    <a href="#" class="card-link">Firebase</a>
-                                </div>
-                                <img  src="/img/zoro.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm ">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Centralizar div</h5>
-                                <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs, pois o
-                                    maluco do meu prof...
-                                </p>
-                                <div class="links">
-                                    <a href="#" class="card-link">NodeJS</a>
-                                    <a href="#" class="card-link">Firebase</a>
-                                </div>
-                                <img  src="/img/zoro.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Centralizar div</h5>
-                                <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs, pois o
-                                    maluco do meu prof...
-                                </p>
-                                <div class="links">
-                                    <a href="#" class="card-link">NodeJS</a>
-                                    <a href="#" class="card-link">Firebase</a>
-                                </div>
-                                <img  src="/img/zoro.png" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="nav-aula" role="tabpanel" aria-labelledby="nav-aula-tab" tabindex="0">
+                <div class="container aulas ">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm ">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Centralizar div</h5>
+                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
+                                        nodejs, pois o
+                                        maluco do meu prof...
+                                    </p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">NodeJS</a>
+                                        <a href="#" class="card-link">Firebase</a>
+                                    </div>
+                                    <img src="/img/zoro.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <div class="tab-pane fade" id="nav-tutor" role="tabpanel" aria-labelledby="nav-tutor-tab" tabindex="0">
+                <div class="row tutores">
+
+                    <div class="col-sm">
+
+                        <div class="card d-flex flex-column gap-4 p-4">
+                            <div class="card-body d-flex justify-content-start align-items-center gap-3">
+                                <div class="img">
+                                    <span class="material-symbols-sharp">
+                                        fiber_manual_record
+                                    </span>
+                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
+                                </div>
+                                <div class="texts">
+                                    <h5>Roronoa Zoro</h5>
+                                    <p>UFABC</p>
+                                </div>
+                            </div>
+                            <div class="card-categorias d-flex align-items-center gap-2">
+                                <p class="categoria p-1">NodeJS</p>
+                                <p class="categoria p-1">Assembly</p>
+                                <p class="categoria p-1">Docker</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm">
+                        <div class="card d-flex flex-column gap-4 p-4">
+                            <div class="card-body d-flex justify-content-start align-items-center gap-3">
+                                <div class="img">
+                                    <span class="material-symbols-sharp">
+                                        fiber_manual_record
+                                    </span>
+                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
+                                </div>
+                                <div class="texts">
+                                    <h5>Roronoa Zoro</h5>
+                                    <p>UFABC</p>
+                                </div>
+                            </div>
+                            <div class="card-categorias d-flex align-items-center gap-2">
+                                <p class="categoria p-1">NodeJS</p>
+                                <p class="categoria p-1">Assembly</p>
+                                <p class="categoria p-1">Docker</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm">
+                        <div class="card d-flex flex-column gap-4 p-4">
+                            <div class="card-body d-flex justify-content-start align-items-center gap-3">
+                                <div class="img">
+                                    <span class="material-symbols-sharp">
+                                        fiber_manual_record
+                                    </span>
+                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
+                                </div>
+                                <div class="texts">
+                                    <h5>Roronoa Zoro</h5>
+                                    <p>UFABC</p>
+                                </div>
+                            </div>
+                            <div class="card-categorias d-flex align-items-center gap-2">
+                                <p class="categoria p-1">NodeJS</p>
+                                <p class="categoria p-1">Assembly</p>
+                                <p class="categoria p-1">Docker</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
         </div>
 
     </div>
 
-</div>
-
-
-{{!-- <div class="tab-historico d-flex gap-3">
-            <button class="p-2">Tutores</button>
-            <button class="p-2">Duvidas</button>
-        </div>
-        <div class="content-historico row">
-            <div class="col">
-                <div class="card d-flex flex-column gap-2 p-3">
-                    <div class="card-content d-flex justify-content-start gap-2">
-                        <img height="80px" src="/img/crash.png" alt="">
-                        <div>
-                            <h4>Crash</h4>
-                            <small>UFABC</small>
-                        </div>
-                    </div>
-                    <div class="card-categorias d-flex gap-2">
-                        <small class="categoria p-1 rounded">NodeJS</small>
-                        <small class="categoria p-1 rounded">Assembly</small>
-                        <small class="categoria p-1 rounded">Docker</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card d-flex flex-column gap-2 p-3">
-                    <div class="card-content d-flex justify-content-start gap-2">
-                        <img height="80px" src="/img/crash.png" alt="">
-                        <div>
-                            <h4>Crash</h4>
-                            <small>UFABC</small>
-                        </div>
-                    </div>
-                    <div class="card-categorias d-flex gap-2">
-                        <small class="categoria p-1 rounded">NodeJS</small>
-                        <small class="categoria p-1 rounded">Assembly</small>
-                        <small class="categoria p-1 rounded">Docker</small>
-                    </div>
-                </div>            </div>
-            <div class="col">
-                <div class="card d-flex flex-column gap-2 p-3">
-                    <div class="card-content d-flex justify-content-start gap-2">
-                        <img height="80px" src="/img/crash.png" alt="">
-                        <div>
-                            <h4>Crash</h4>
-                            <small>UFABC</small>
-                        </div>
-                    </div>
-                    <div class="card-categorias d-flex gap-2">
-                        <small class="categoria p-1 rounded">NodeJS</small>
-                        <small class="categoria p-1 rounded">Assembly</small>
-                        <small class="categoria p-1 rounded">Docker</small>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+    </div>
