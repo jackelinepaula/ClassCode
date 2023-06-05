@@ -22,7 +22,7 @@
 .coluna-1 .card{
     width: 190px;
     height: 130px;
-    border: 1px solid #333333;
+    /* border: 1px solid #333333; */
 }
 
 .coluna-1 .coluna .card .card-title{
@@ -35,7 +35,7 @@
     width: 440px;
     height: 270px;
     padding: 8px;
-    border: 1px solid #333333;
+    /* border: 1px solid #333333; */
 
 }
 
@@ -108,15 +108,17 @@
 }
 
 .painel .title-painel .desc{
-    color: var(--color10);
-    margin-bottom: 2rem;
+    color: var(--color11);
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+
 }
 
 .painel .container .card{
     width: 300;
     height: 280px;
     padding: 5px;
-    border: 1px solid #333333;
+    /* border: 1px solid #333333; */
     cursor: pointer;
 }
 
