@@ -4,28 +4,27 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
-const {aluno, tutor} = require("./services/banco")
-const bycript = require("bcryptjs");
-const { where } = require("sequelize");
+const {aluno} = require("./services/banco")
+
+// const admin = require('firebase-admin');
+// const serviceAccount = require('./config/firebaseServiceAccountKey.json');
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
+
+// const firebaseAuth = admin.auth();
+
+
+
+
+
+
+
 
 const app = express()
 
-// Configuração de Session do usuário
-app.use(express.urlencoded({ extended: true }));
-app.use(session({
-  secret: 'seu_segredo_aqui',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.use(express.urlencoded({
-    extended: true
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 passport.use(new LocalStrategy(
     function (username, password, done) {
@@ -181,6 +180,7 @@ app.engine(pageExtensao, handlebars({
 app.set("view engine", pageExtensao)
 
 // ROTAS
+
 app.get("/", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "login",
@@ -195,7 +195,7 @@ app.get("/cadastro", function(req, res){
         defaultLayout: "login",
     }))
     res.render("cadastro", {
-        style: "/css/login.css"
+        style: "/css/login.css",
     })
 })
 

@@ -40,11 +40,27 @@
                         </a>
                     </div>
                 </div>
-            </form>
+                <form id="google-autentication" action="/login" method="post">
+                    <input type="passsword" id="authID" name="authID">
+                    <input type="email" id="authEmail" name="email">
+                    <button type="button" id="auth-login" class="btn btn-primary">Confirmar</button>
+                </form>
+            </div>
+        </form>
 
-        </div>
+        
+
 
     </section>
+
+    
+
+
+
+
+
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
 
 </body>
 
