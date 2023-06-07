@@ -70,6 +70,7 @@ body{
     height: 40px;
     margin-top: 0.5rem;
     background-color: var(--color6);
+    color: var(--colo12);
     border:none;
     border-radius: 4px;
 }
@@ -79,6 +80,9 @@ body{
     transition: .2s;
 }
 
+.login .card .switch{
+    width: 135px;
+}
 
 .login .card .links-form a{
     font-size: 0.8rem;
