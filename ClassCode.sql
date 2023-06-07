@@ -1,9 +1,9 @@
-Create database Classcode;
+Create database classcode;
 
-USE ClassCode;
+USE classCode;
 
 CREATE TABLE Alunos (
-    idAluno int primary key,
+    idAluno int primary key auto_increment,
     nomeAluno varchar(75),
     emailAluno varchar(50),
     instEnsinoAluno varchar(50)
