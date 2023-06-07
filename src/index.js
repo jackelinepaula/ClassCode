@@ -1,156 +1,70 @@
 const express = require("express")
 const handlebars = require("express-handlebars").engine
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+const {aluno} = require("./services/banco")
 const session = require('express-session');
-
-const {aluno, tutor} = require("./services/banco")
-const bycript = require("bcryptjs");
-const { where } = require("sequelize");
+const bodyParser = require("body-parser");
 
 const app = express()
+app.use(bodyParser.urlencoded({extended: true}));
 
-// Configuração de Session do usuário
-app.use(express.urlencoded({ extended: true }));
+const sessionChecker = (req, res, next) => {    
+    if (req.session.logged) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+};   
+
 app.use(session({
-  secret: 'seu_segredo_aqui',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(express.urlencoded({
-    extended: true
+    secret: 'sua_chave_secreta',
+    resave: false,
+    saveUninitialized: true,
+    logged: false,
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(new LocalStrategy(
-    function (username, password, done) {
-        // Aqui você pode verificar as credenciais do usuário com o banco de dados
-        // Toda a lógica do banco, verificação se um usuário é um tutor ou aluno, nome, senha, é feita aqui
-        try {
-            aluno.findAll({
-                where:{
-                    'emailAluno': username
-                }
-            }).then((data) => {
-                const aluno = data[0].dataValues
-                console.log(aluno);
-                if (username === aluno.emailAluno && password === aluno.senhaAluno) {
-                    return done(null, {
-                        id: aluno.idAluno,
-                        name: aluno.nomeAluno
-                    });
-                }
-            })
-
-            // tutor.findAll({
-            //     where:{
-            //         'emailTutor': username
-            //     }
-            // }).then((data) => {
-            //     const tutor = data[0].dataValues
-            //     console.log(tutor);
-            //     if (username === tutor.emailTutor && password === 'senha') {
-            //         return done(null, {
-            //             id: tutor.idTutor,
-            //             name: tutor.nomeTutor
-            //         });
-            //     }
-            // })
-            
-        } catch (error) {
-            console.log(error);
-            return done(null, false);
-        }
-
-    }
-));
-
-// Serialização e desserialização do usuário
-passport.serializeUser(function (user, done) {
-    done(null, user.id);
-});
-
-passport.deserializeUser(function (id, done) {
-    // Aqui você deve implementar a lógica para recuperar o usuário com base no ID
-    // Por exemplo, você pode consultar um banco de dados
-    const user = {};
-
-    // aluno.findAll({
-            
-    // }).then((data) => {
-    //     user = {
-    //         id: data.dataValues,
-    //         userEmail: 'aluno'
-    //     }
-    // })
-
-    ;
-    done(null, user);
-});
-
-function isAuthenticated(req, res, next) { 
-    // Caso alguém acessar uma URL restrita, e verificado se ele tem acesso, se não, volta pro login
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/');
-  }
-
-// Rota de login, aqui é definido se X usuário é aluno ou tutor e pra onde ele será redirecionado
-app.post('/login',
-    passport.authenticate('local', {
-        successRedirect: '/aluno/dash',
-        failureRedirect: '/'
-    }),
-    passport.authenticate('tutor', {
-        successRedirect: '/tutor/dash',
-        failureRedirect: '/'
-    })
-);
-
-app.post('/insert', async (req, res) => {
-    const {username, email, senha} = req.body
-
-    console.log(req.body);
+app.post('/auth', async (req, res) => {
+    const {authID, authEmail, authName} = req.body
 
     try {
         const dadoExistente = await aluno.findOne({
             where:{
-                'emailAluno': email
+                'authId': authID
             }
         })
 
-        if (!dadoExistente) {
-            aluno.create({
-                nomeAluno: username,
-                emailAluno: email,
-                senhaAluno: senha
+        if (dadoExistente === null) {
+            await aluno.create({
+                nomeAluno: authName,
+                email: authEmail,
+                authId: authID
             }).then(() => {
-                console.log("Cadastrado", username, email, senha);
+                console.log("Cadastrado", authName, authEmail, authID);
             })
-            res.redirect("/aluno")
         }
+
+        req.session.logged = true
+        req.session.cookie = { 
+            secure: false, // This will only work if you have https enabled!
+            maxAge: 60000 * 60, // 1 min * 60
+            name: authName,
+            email: authEmail,
+        }
+
+        console.log(req.session)
+        res.redirect("/aluno")
+
     } catch (error) {
-        
+        console.error(error)
     }
+})
 
-    if ("aluno"){
-    
+app.get('/logout', (req, res) => {
+    req.session.logged = false
+    req.session.cookie = {}
+    res.redirect("/")
+})
 
-    }
-
-    if ("tutor"){
-
-    }
-
-});
-
-app.get('/aluno', isAuthenticated, function(req, res) { 
+app.get('/aluno', sessionChecker ,function(req, res) { 
     // Verifica a autenticação e envia o ussuario pra dash
     app.engine(pageExtensao, handlebars({
         defaultLayout: "main",
@@ -181,6 +95,7 @@ app.engine(pageExtensao, handlebars({
 app.set("view engine", pageExtensao)
 
 // ROTAS
+
 app.get("/", function(req, res){
     app.engine(pageExtensao, handlebars({
         defaultLayout: "login",
@@ -195,7 +110,7 @@ app.get("/cadastro", function(req, res){
         defaultLayout: "login",
     }))
     res.render("cadastro", {
-        style: "/css/login.css"
+        style: "/css/login.css",
     })
 })
 
