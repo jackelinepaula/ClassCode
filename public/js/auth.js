@@ -17,12 +17,9 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     signInWithPopup(auth, provider)
         .then((result) => {
-            console.log(result);
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-
-            console.log(token);
 
             document.getElementById("authID").value = result.user.uid
             document.getElementById("authName").value = result._tokenResponse.fullName
@@ -30,14 +27,6 @@ form.addEventListener("submit", (e) => {
 
             form.submit()
     }).catch((error) => {
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error(error);
     });
 })
-
-function login() {
-    
-}
