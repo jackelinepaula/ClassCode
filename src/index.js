@@ -1,35 +1,29 @@
 const express = require("express")
 const handlebars = require("express-handlebars").engine
 const {aluno} = require("./services/banco")
-const {passport, isAuthenticated} = require("./controllers/authController")
 const session = require('express-session');
+const bodyParser = require("body-parser");
 
 const app = express()
+app.use(bodyParser.urlencoded({extended: true}));
 
-  const sessionChecker = (req, res, next) => {    
-    console.log(req.session);
-    if (req.session) {
+const sessionChecker = (req, res, next) => {    
+    if (req.session.logged) {
         next();
     } else {
         res.redirect('/');
     }
 };   
 
-// app.use(session({  
-//     name: authName,
-//     email: authEmail,
-//     secret: 'TOPSecret',  
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: { 
-//       secure: false, // This will only work if you have https enabled!
-//       maxAge: 60000 * 60 // 1 min * 60
-//     } 
-// }));
+app.use(session({
+    secret: 'sua_chave_secreta',
+    resave: false,
+    saveUninitialized: true,
+    logged: false,
+}));
 
-app.get('/auth', async (req, res) => {
-
-    const {authID, authEmail, authName} = req.query
+app.post('/auth', async (req, res) => {
+    const {authID, authEmail, authName} = req.body
 
     try {
         const dadoExistente = await aluno.findOne({
@@ -38,8 +32,7 @@ app.get('/auth', async (req, res) => {
             }
         })
 
-        if (dadoExistente !== null) {
-        }else {
+        if (dadoExistente === null) {
             await aluno.create({
                 nomeAluno: authName,
                 email: authEmail,
@@ -49,17 +42,14 @@ app.get('/auth', async (req, res) => {
             })
         }
 
-        app.use(session({  
-            secret: 'TOPSecret',  
-            resave: false,
-            saveUninitialized: false,
-            cookie: { 
-                secure: false, // This will only work if you have https enabled!
-                maxAge: 60000 * 60, // 1 min * 60
-                name: authName,
-                email: authEmail,
-            } 
-        }));
+        req.session.logged = true
+        req.session.cookie = { 
+            secure: false, // This will only work if you have https enabled!
+            maxAge: 60000 * 60, // 1 min * 60
+            name: authName,
+            email: authEmail,
+        }
+
         console.log(req.session)
         res.redirect("/aluno")
 
@@ -69,7 +59,8 @@ app.get('/auth', async (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-    req.session.destroy()
+    req.session.logged = false
+    req.session.cookie = {}
     res.redirect("/")
 })
 

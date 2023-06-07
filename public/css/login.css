@@ -59,6 +59,16 @@ body{
     font-size: var(--color11);
 }
 
+.login .card form input#authID {
+    display: none;
+}
+.login .card form input#authName {
+    display: none;
+}
+.login .card form input#authEmail {
+    display: none;
+}
+
 .login .card form input:focus{
     border: 1px solid var(--purple);
     background-color: var(--color3);

@@ -18,22 +18,25 @@
 
         <div class="card d-flex align-items-center justify-content-center">
 
-            <form action="/login" method="POST">
-                <div class="logo d-flex justify-content-center">
-                    <img src="/img/logo-title.svg" alt="">
-                </div>
+        <form id="google-autentication" action="/auth" method="POST">
+            <div class="logo d-flex justify-content-center">
+                <img src="/img/logo-title.svg" alt="">
+            </div>
                 
                 <div class="d-flex align-items-center flex-column gap-2">
                     <h5>Acesse sua conta</h5>
-                    <div class="input d-flex flex-column">
+                    <input type="text" id="authID" name="authID">
+                    <input type="test" id="authName" name="authName">
+                    <input type="email" id="authEmail" name="authEmail">
+                    {{!-- <div class="input d-flex flex-column">
                         <label for="email">Email</label>
                         <input type="email" id="userEmail" name="username" placeholder="@gmail.com">
-                    </div>
-                    <div class="input d-flex flex-column">
+                    </div> --}}
+                    {{!-- <div class="input d-flex flex-column">
                         <label for="senha">Senha</label>
                         <input type="password" id="password" name="password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div> --}}
+                    <button type="submit" id="auth-login" class="btn btn-primary">Fazer Login com Google</button>
                     <div class="links-form d-flex">
                         <a href="/cadastro">
                             <p>Não possui conta? <span>Crie uma</span></p>
@@ -43,12 +46,10 @@
             </div>
         </form>
 
-                <form id="google-autentication" action="/auth" method="GET">
-                    <input  type="text" id="authID" name="authID">
-                    <input  type="test" id="authName" name="authName">
-                    <input  type="email" id="authEmail" name="authEmail">
-                    <button type="submit" id="auth-login" class="btn btn-primary">Confirmar</button>
-                </form>
+        <form id="google-autentication" action="/auth" method="GET">
+            
+            {{!-- <button type="submit" id="auth-login" class="btn btn-primary">Confirmar</button> --}}
+        </form>
 
     </section>
 
