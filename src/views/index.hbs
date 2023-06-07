@@ -40,23 +40,17 @@
                         </a>
                     </div>
                 </div>
-                <form id="google-autentication" action="/login" method="post">
-                    <input type="passsword" id="authID" name="authID">
-                    <input type="email" id="authEmail" name="email">
-                    <button type="button" id="auth-login" class="btn btn-primary">Confirmar</button>
-                </form>
             </div>
         </form>
 
-        
-
+                <form id="google-autentication" action="/auth" method="GET">
+                    <input  type="text" id="authID" name="authID">
+                    <input  type="test" id="authName" name="authName">
+                    <input  type="email" id="authEmail" name="authEmail">
+                    <button type="submit" id="auth-login" class="btn btn-primary">Confirmar</button>
+                </form>
 
     </section>
-
-    
-
-
-
 
 
     <script type="module" src="/js/auth.js"></script>
