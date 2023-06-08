@@ -33,13 +33,16 @@ app.post('/auth', async (req, res) => {
         })
 
         if (dadoExistente === null) {
-            await aluno.create({
-                nomeAluno: authName,
-                email: authEmail,
-                authId: authID
-            }).then(() => {
-                console.log("Cadastrado", authName, authEmail, authID);
-            })
+            alert("sdfdsf")
+            
+            
+            // await aluno.create({
+            //     nomeAluno: authName,
+            //     email: authEmail,
+            //     authId: authID
+            // }).then(() => {
+            //     console.log("Cadastrado", authName, authEmail, authID);
+            // })
         }
 
         req.session.logged = true
@@ -49,13 +52,20 @@ app.post('/auth', async (req, res) => {
             name: authName,
             email: authEmail,
         }
-
-        console.log(req.session)
         res.redirect("/aluno")
 
     } catch (error) {
         console.error(error)
     }
+})
+
+app.get("/cadastro", function(req, res){
+    app.engine(pageExtensao, handlebars({
+        defaultLayout: "login",
+    }))
+    res.render("cadastro", {
+        style: "/css/login.css",
+    })
 })
 
 app.get('/logout', (req, res) => {
@@ -105,14 +115,7 @@ app.get("/", function(req, res){
     })
 })
 
-app.get("/cadastro", function(req, res){
-    app.engine(pageExtensao, handlebars({
-        defaultLayout: "login",
-    }))
-    res.render("cadastro", {
-        style: "/css/login.css",
-    })
-})
+
 
 app.get("/aluno/dash", function(req, res) {
     app.engine(pageExtensao, handlebars({

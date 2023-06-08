@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize")
-const sequelize = new Sequelize("classcode-firebase", "root", "", {
+const sequelize = new Sequelize("classcode", "root", "", {
     host: "localhost",
     dialect: "mysql"
 })

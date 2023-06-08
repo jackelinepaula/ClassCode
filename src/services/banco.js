@@ -33,10 +33,14 @@ const tutor = db.sequelize.define("tutores", {
         allowNull: false,
         primaryKey: true
     },
+    authId: {
+        type: db.Sequelize.STRING,
+        unique: true,
+    },
     nomeTutor:{
         type: db.Sequelize.STRING
     },
-    emailTutor:{
+    email:{
         type: db.Sequelize.STRING
     },
     instEnsinoTutor: {
