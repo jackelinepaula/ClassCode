@@ -7,10 +7,16 @@ const aluno = db.sequelize.define("alunos", {
         allowNull: false,
         primaryKey: true
     },
-    nomeAluno:{
-        type: db.Sequelize.STRING
+    authId: {
+        type: db.Sequelize.STRING,
+        unique: true,
     },
-    emailAluno:{
+    email: {
+        type: db.Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    nomeAluno:{
         type: db.Sequelize.STRING
     },
     instEnsinoAluno: {
@@ -154,4 +160,3 @@ module.exports = {
     duvida,
     aula
 }
-
