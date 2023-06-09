@@ -1,11 +1,11 @@
 const express = require('express');
 const auth = require('./controllers/auth.js')
 const {sessionChecker} = require('./controllers/session.js')
-const crud = require('./controllers/crud.js');
+const crud = require('./controllers/functions.js');
 const cadastroUsuario = require('./controllers/cadastroUsuario.js');
 
 const router = express.Router()
-//rotas e autenticação
+//rotas de autenticação
 
 router.post("/auth", auth)
 
@@ -24,17 +24,9 @@ router.get('/logout', (req, res) => {
     res.redirect("/")
 })
 
-router.get('/aluno', sessionChecker, function(req, res) { 
-    res.render("dash_aluno", {
-        style: "/css/dashaluno.css"
-    })
-});
+router.get('/aluno', sessionChecker, crud.alunoDash);
 
-router.get("/tutor", sessionChecker, function(req, res){
-    res.render("dash_tutor", {
-        style: "/css/dashtutor.css"
-    })
-})
+router.get("/tutor", sessionChecker, crud.tutorDash);
 
 // rotas de navegação
 
@@ -44,8 +36,6 @@ router.get("/", function(req, res){
         layout: "login"
     })
 })
-
-router.get("/aluno/dash", crud.alunoDash)
 
 router.get("/tutor/dash", function(req, res){
     res.render("dash_tutor", {
