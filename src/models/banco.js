@@ -16,12 +16,9 @@ const aluno = db.sequelize.define("alunos", {
         allowNull: false,
         unique: true,
     },
-    nome:{
-        type: db.Sequelize.STRING
-    },
-    instEnsino: {
-        type: db.Sequelize.STRING
-    },
+    nome:{ type: db.Sequelize.STRING },
+    urlImagem: { type: db.Sequelize.STRING },
+    instEnsino: { type: db.Sequelize.STRING },
 },{
     timestamps: false
 })
@@ -43,6 +40,7 @@ const tutor = db.sequelize.define("tutores", {
     email:{
         type: db.Sequelize.STRING
     },
+    urlImagem: { type: db.Sequelize.STRING },
     instEnsino: {
         type: db.Sequelize.STRING
     },
@@ -53,18 +51,27 @@ const tutor = db.sequelize.define("tutores", {
     timestamps: false
 })
 
-const categoriaDuvida = db.sequelize.define("categoriaduvida", {
-    idCategoriaDuvida: {
+const tecnologia = db.sequelize.define("tecnologias", {
+    idTecnologia: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    descricaoDuvida:{
+    nomeTecnologia:{
         type: db.Sequelize.STRING
     },
 },{
     timestamps: false
+})
+
+const tecnologiaTutor = db.sequelize.define("tecnologiaTutor", {
+    idTecnologiaTutor: {
+        type: db.Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    }
 })
 
 const minutos = db.sequelize.define("minutos", {
@@ -113,6 +120,15 @@ const aula = db.sequelize.define("aulas", {
 })
 
 // Chaves Estrangeiras
+tecnologiaTutor.belongsTo(tutor, {
+    constraint: true,
+    foreignKey: 'idTutor'
+})
+
+tecnologiaTutor.belongsTo(tecnologia, {
+    constraint: true,
+    foreignKey: 'idTecnologia'
+})
 
 minutos.belongsTo(aluno, {
     constraint: true, 
@@ -124,9 +140,9 @@ duvida.belongsTo(aluno, {
     foreignKey: 'idAluno'
 })
 
-duvida.belongsTo(categoriaDuvida, {
+duvida.belongsTo(tecnologia, {
     constraint: true, 
-    foreignKey: 'idCategoriaDuvida'
+    foreignKey: 'idTecnologia'
 })
 
 duvida.belongsTo(tutor, {
@@ -159,7 +175,7 @@ aula.belongsTo(aluno, {
 module.exports = {
     aluno,
     tutor,
-    categoriaDuvida,
+    tecnologia,
     minutos,
     duvida,
     aula

@@ -3,7 +3,7 @@
     <div class="card row user-info-container d-flex flex-row">
         <div class="col-sm">
             <div class="user-message">
-                <h5 class="titulo-cor">Olá, Luffy</h5>
+                <h5 class="titulo-cor">Olá, {{data.aluno.primeiroNome}}</h5>
                 <small class="desc">Quais são as dúvidas de hoje?</small>
             </div>
         </div>
@@ -11,7 +11,7 @@
         <div class="col-sm one">
             <div class="user-profile">
                 <div>
-                    <h5 class="titulo-cor">{{data.aluno.nomeAluno}}</h5>
+                    <h5 class="titulo-cor">{{data.aluno.nome}}</h5>
                     <small class="desc">Fatec Zona Leste</small>
                 </div>
                 <div class="img">
@@ -38,43 +38,14 @@
 
         <h5 class="desc">Em qual tecnologia deseja ajuda?</h5>
         <div class="categorias-grid ">
-            {{#each data.categoria}}
+            {{#each data.tecnologia}}
             {{#dataValues}}
             <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>{{descricaoDuvida}}</span>
+                <span>{{nomeTecnologia}}</span>
                 <img src="/img/icon/icons8-html-5.svg" alt="">
             </a>
             {{/dataValues}}
             {{/each}}
-            {{!-- <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>CSS</span>
-                <img src="/img/icon/icons8-css.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>JavaScript</span>
-                <img src="/img/icon/icons8-javascript.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>ReactJS</span>
-                <img src="/img/icon/icons8-nativo-de-reagir.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>MySQL</span>
-                <img src="/img/icon/icons8-mysql.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>NodeJS</span>
-                <img src="/img/icon/icons8-node-js.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>PHP</span>
-                <img src="/img/icon/icons8-php2.svg" alt="">
-            </a>
-            <a href="/aluno/tutor" class="card p-3 categoria-card">
-                <span>FireBase</span>
-                <img src="/img/icon/icons8-firebase.svg" alt="">
-            </a> --}}
-
         </div>
     </div>
 

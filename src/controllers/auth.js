@@ -16,6 +16,7 @@ async function auth(req, res) {
         req.session.cookie = { 
             secure: false, // This will only work if you have https enabled!
             maxAge: 60000 * 60, // 1 min * 60
+            authID: authID,
             name: authName,
             email: authEmail,
         }
