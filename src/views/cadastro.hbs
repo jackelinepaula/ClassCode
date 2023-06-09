@@ -17,13 +17,13 @@
 
         <div class="card d-flex align-items-center justify-content-center">
 
-            <form action="/login" method="POST">
+            <form id="google-autentication" action="/cadastrar" method="POST">
                 <div class="logo d-flex justify-content-center">
                     <img src="/img/logo-title.svg" alt="">
                 </div>
                 <div class="d-flex align-items-center flex-column gap-2">
-                    <h5>Cadastro</h5>
-                    <div class="input d-flex flex-column">
+                    <h5>Não tem cadastro? Crie agora!</h5>
+                    {{!-- <div class="input d-flex flex-column">
                         <label for="nome">Nome</label>
                         <input type="nome" id="nome" name="nome">
                     </div>
@@ -42,13 +42,28 @@
                             <button class="btn btn-outline-primary switch">Tutor</button>
                         </div>
                         <button type="submit" class="btn btn-primary">Confirmar</button>
-                    </div>
+                    </div> --}}
+
+                    <label for="usuarioAluno">Aluno</label>
+                    <input type="radio" checked name="tipoUser" value="aluno" id="usuarioAluno">
+
+                    <label for="usuarioTutor">Tutor</label>
+                    <input type="radio" name="tipoUser" value="tutor" id="usuarioTutor">
+
+
+                    <input type="text" id="authID" name="authID">
+                    <input type="test" id="authName" name="authName">
+                    <input type="email" id="authEmail" name="authEmail">
+                    
+                    <button type="submit" id="auth-login" class="btn btn-primary">Fazer Login com Google</button>
                 </div>
             </form>
-
         </div>
-
     </section>
+
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+
 </body>
 
 </html>
