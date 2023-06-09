@@ -12,15 +12,12 @@ async function auth(req, res) {
     if (dados === null) {
         res.redirect("/cadastro")
     } else {
+        
         req.session.logged = true
-        req.session.cookie = { 
-            secure: false, // This will only work if you have https enabled!
-            maxAge: 60000 * 60, // 1 min * 60
-            authID: authID,
-            name: authName,
-            email: authEmail,
-        }
-    
+        req.session.authID = authID
+        req.session.name = authName
+        req.session.email = authEmail
+        
         res.redirect(`/${dados.tipoUser}`)
     }
 }

@@ -20,7 +20,9 @@ router.post("/cadastrar", cadastroUsuario)
 
 router.get('/logout', (req, res) => {
     req.session.logged = false
-    req.session.cookie = {}
+    req.session.authID = null
+    req.session.name = null
+    req.session.email = null
     res.redirect("/")
 })
 
