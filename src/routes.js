@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router()
-const auth = require('./controllers/authUser.js')
+const auth = require('./controllers/auth.js')
 const {sessionChecker} = require('./controllers/session.js')
-const crud = require('./controllers/crud.js')
+const crud = require('./controllers/crud.js');
+const cadastroUsuario = require('./controllers/cadastroUsuario.js');
 
+const router = express.Router()
 //rotas e autenticação
 
 router.post("/auth", auth)
@@ -14,6 +15,8 @@ router.get("/cadastro", function(req, res){
         layout: "login"
     })
 })
+
+router.post("/cadastrar", cadastroUsuario)
 
 router.get('/logout', (req, res) => {
     req.session.logged = false
@@ -27,6 +30,11 @@ router.get('/aluno', sessionChecker, function(req, res) {
     })
 });
 
+router.get("/tutor", sessionChecker, function(req, res){
+    res.render("dash_tutor", {
+        style: "/css/dashtutor.css"
+    })
+})
 
 // rotas de navegação
 
@@ -70,17 +78,3 @@ router.get("/aluno/historico", function(req, res) {
 })
 
 module.exports = router
-/*
-    index.js
-    foreach
-    app.get(pagina, function)
-
-    routes.js
-    [
-        {"/auth", function(req,res)},
-        {"/login", function(req,res)},
-        {"/logout", function(req,res)},
-        {"/aluno", function(req,res)},
-    ]
-
-*/

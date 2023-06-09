@@ -1,6 +1,5 @@
 const express = require("express")
 const handlebars = require("express-handlebars").engine
-const {aluno} = require("./models/banco")
 const bodyParser = require("body-parser")
 const {sessao} = require("./controllers/session.js")
 const session = require('express-session');
