@@ -30,8 +30,7 @@ async function tutorDash(req, res) {
     console.log(tutor)
 
     res.render("dash_tutor", {
-        username: req.session.name,
-        userimg: req.session.perfilImg,
+        user: req.session.user,
         data: {
             // tutor: tutor
         },
