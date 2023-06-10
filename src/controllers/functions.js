@@ -3,11 +3,10 @@ const Tutor = require('../models/tutor.js')
 const Aluno = require('../models/aluno.js')
 const Tecnologia = require('../models/tecnologia.js');
 const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
-const { tecnologia } = require('../models/banco.js');
+const { setDuvida, getDuvida } = require('../models/duvida.js');
 
 async function alunoDash(req, res) {
     try {
-        console.log(req.session);
 
         // const user = await Aluno.getAluno(req.session.authID)
         const tecnologia = await Tecnologia.getTecnologia()
@@ -56,13 +55,23 @@ async function alunoTutor(req, res){
     }
 }
 
-async function cadastrarDuvida(req, res){
-    console.log(req.body);
+function cadastrarDuvida(req, res){
+    setDuvida(req.body, req.session.user.id)
+    res.redirect("/aluno/historico")
+}
+
+function getHistorico(req, res){
+    getDuvida(req.session.user.id)
+    res.render("historico", {
+        style: "/css/historico.css",
+        user: req.session.user,
+    })
 }
 
 module.exports = {
     alunoDash,
     tutorDash,
     alunoTutor,
-    cadastrarDuvida
+    cadastrarDuvida,
+    getHistorico
 }

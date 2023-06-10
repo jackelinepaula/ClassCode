@@ -24,5 +24,5 @@ app.use(routes)
 const portaRede = 8081; 
 
 app.listen(portaRede, () => {
-    console.log("[express] Working http://localhost:" + portaRede);
+    console.log('\x1b[33m%s\x1b[0m', "[express] Working http://localhost:" + portaRede)
 })
