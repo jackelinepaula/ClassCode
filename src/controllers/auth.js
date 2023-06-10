@@ -12,17 +12,18 @@ async function auth(req, res) {
     } else {
         const userData = await dados.dataUser[0].dataValues
 
-        console.log(userData);
-
         req.session.logged = true
         req.session.authID = authID
 
         req.session.user = {
+            id: userData.idAluno,
             name: userData.nome,
             firstName: userData.nome.split(" ")[0],
             email: userData.authEmail,
             img: userData.perfilImg,
         }
+
+        console.log('\x1b[33m%s\x1b[0m', '[session] Usuário Logado: ' + req.session.user.name);
         
         res.redirect(`/${dados.tipoUser}`)
     }

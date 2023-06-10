@@ -58,12 +58,6 @@ router.get("/aluno/comprar", sessionChecker, function(req, res) {
     })
 })
 
-
-router.get("/aluno/historico", sessionChecker, function(req, res) {
-    res.render("historico", {
-        style: "/css/historico.css",
-        user: req.session.user,
-    })
-})
+router.get("/aluno/historico", sessionChecker, crud.getHistorico)
 
 module.exports = router

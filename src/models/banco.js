@@ -97,6 +97,9 @@ const duvida = db.sequelize.define("duvidas", {
         allowNull: false,
         primaryKey: true
     },
+    assuntoDuvida:{
+        type: db.Sequelize.STRING
+    },
     descricaoDuvida:{
         type: db.Sequelize.STRING
     },
@@ -170,7 +173,7 @@ aula.belongsTo(aluno, {
 
 // db.sequelize.sync({force: true})
 //     .then(() => {
-//         console.log("[Sequelize] Tabelas Criadas com sucesso");
+//         console.log('\x1b[33m%s\x1b[0m', "[Sequelize] Tabelas Criadas com sucesso");
 //     })
 
 
