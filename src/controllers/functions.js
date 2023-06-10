@@ -28,10 +28,7 @@ async function alunoDash(req, res) {
 }
 
 async function tutorDash(req, res) {
-    // 
-
-    console.log(tutor)
-
+    console.log(req.session.user)
     res.render("dash_tutor", {
         user: req.session.user,
         data: {
@@ -60,7 +57,7 @@ async function alunoTutor(req, res){
 }
 
 async function cadastrarDuvida(req, res){
-    
+    console.log(req.body);
 }
 
 module.exports = {
