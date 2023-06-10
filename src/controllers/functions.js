@@ -5,7 +5,9 @@ const Tecnologia = require('../models/tecnologia.js')
 
 async function alunoDash(req, res) {
     try {
-        const user = await Aluno.getAluno(req.session.cookie.authID)
+        console.log(req.session);
+
+        const user = await Aluno.getAluno(req.session.authID)
         const tecnologia = await Tecnologia.getTecnologia()
         
         res.render("dash_aluno", {

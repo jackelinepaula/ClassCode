@@ -20,10 +20,16 @@ form.addEventListener("submit", (e) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-
+            
             document.getElementById("authID").value = result.user.uid
             document.getElementById("authName").value = result._tokenResponse.fullName
             document.getElementById("authEmail").value = result._tokenResponse.email
+            
+            try {
+                document.getElementById("authImg").value = result.user.photoURL
+            } catch (error) {
+                console.log(error);
+            }
 
             form.submit()
     }).catch((error) => {
