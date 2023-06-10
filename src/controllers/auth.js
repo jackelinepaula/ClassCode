@@ -6,17 +6,23 @@ async function auth(req, res) {
     const dados = await verificarTipoUser(["aluno", "tutor"], {
         'authId': authID
     })
-    
-    console.log(dados);
 
     if (dados === null) {
         res.redirect("/cadastro")
     } else {
-        
+        const userData = await dados.dataUser[0].dataValues
+
+        console.log(userData);
+
         req.session.logged = true
         req.session.authID = authID
-        req.session.name = authName
-        req.session.email = authEmail
+
+        req.session.user = {
+            name: userData.nome,
+            firstName: userData.nome.split(" ")[0],
+            email: userData.authEmail,
+            img: userData.perfilImg,
+        }
         
         res.redirect(`/${dados.tipoUser}`)
     }
@@ -26,7 +32,6 @@ async function verificarTipoUser(tabelas, where){
     let obj = null
     for (let i = 0; i < tabelas.length; i++) {
         await db[tabelas[i]].findAll({ where: where }).then((data) => {
-            console.log(data);
             if (data.length > 0){
                 obj = {
                     tipoUser: tabelas[i],

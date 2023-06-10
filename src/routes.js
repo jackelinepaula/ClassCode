@@ -7,6 +7,13 @@ const cadastroUsuario = require('./controllers/cadastroUsuario.js');
 const router = express.Router()
 //rotas de autenticação
 
+router.get("/", function(req, res){
+    res.render("index", {
+        style: "/css/login.css",
+        layout: "login"
+    })
+})
+
 router.post("/auth", auth)
 
 router.get("/cadastro", function(req, res){
@@ -21,8 +28,7 @@ router.post("/cadastrar", cadastroUsuario)
 router.get('/logout', (req, res) => {
     req.session.logged = false
     req.session.authID = null
-    req.session.name = null
-    req.session.email = null
+    req.session.user = null
     res.redirect("/")
 })
 
@@ -32,40 +38,31 @@ router.get("/tutor", sessionChecker, crud.tutorDash);
 
 // rotas de navegação
 
-router.get("/", function(req, res){
-    res.render("index", {
-        style: "/css/login.css",
-        layout: "login"
-    })
-})
-
-router.get("/tutor/dash", function(req, res){
-    res.render("dash_tutor", {
-        style: "/css/dashtutor.css"
-    })
-})
-
-router.get("/aluno/tutor", function(req, res) {
+router.get("/aluno/tutor", sessionChecker, function(req, res) {
     res.render("escolha_tutores", {
-        style: "/css/tutores.css"
+        style: "/css/tutores.css",
+        user: req.session.user,
     })
 })
 
-router.get("/aluno/comprar", function(req, res) {
+router.get("/aluno/comprar", sessionChecker, function(req, res) {
     res.render("comprar_minutos", {
-        style: "/css/minuto.css"
+        style: "/css/minuto.css",
+        user: req.session.user,
     })
 })
 
-router.get("/aluno/tutor/duvida", function(req, res) {
+router.get("/aluno/tutor/duvida", sessionChecker, function(req, res) {
     res.render("duvida", {
-        style: "/css/duvida.css"
+        style: "/css/duvida.css",
+        user: req.session.user,
     })
 })
 
-router.get("/aluno/historico", function(req, res) {
+router.get("/aluno/historico", sessionChecker, function(req, res) {
     res.render("historico", {
-        style: "/css/historico.css"
+        style: "/css/historico.css",
+        user: req.session.user,
     })
 })
 

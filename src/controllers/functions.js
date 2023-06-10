@@ -7,15 +7,16 @@ async function alunoDash(req, res) {
     try {
         console.log(req.session);
 
-        const user = await Aluno.getAluno(req.session.authID)
+        // const user = await Aluno.getAluno(req.session.authID)
         const tecnologia = await Tecnologia.getTecnologia()
         
         res.render("dash_aluno", {
+            user: req.session.user,
             data: {
-                aluno: user,
+                // aluno: user,
                 tecnologia: tecnologia
             },
-            style: "/css/dashaluno.css"
+            style: "/css/dashaluno.css",
         })
 
     } catch (error) {
@@ -24,15 +25,17 @@ async function alunoDash(req, res) {
 }
 
 async function tutorDash(req, res) {
-    const tutor = await Tutor.getTutor(req.session.cookie.authID)
+    // const tutor = await Tutor.getTutor(req.session.authID)
 
     console.log(tutor)
 
     res.render("dash_tutor", {
+        user: req.session.user,
         data: {
-            tutor: tutor
+            // tutor: tutor
         },
-        style: "/css/dashtutor.css"
+        style: "/css/dashtutor.css",
+        layout: "tutor",
     })
 }
 
