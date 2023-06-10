@@ -77,18 +77,60 @@ body{
 
 .login .card button{
     width: 280px;
-    height: 40px;
+    height: 45px;
     margin-top: 0.5rem;
-    background-color: var(--color6);
+    background-color: transparent;
     color: var(--colo12);
-    border:none;
+    border: 1px solid var(--color6);
     border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
 }
 
 .login .card button:hover{
-    background-color: var(--purple);
+    background-color: var(--color3);
     transition: .2s;
 }
+
+.login .card button img{
+    width: 25px;
+}
+
+.login .card .input-firebase{
+    display: none;
+}
+
+.login .card .radio-buttons{
+    width: 280px;
+}
+
+.login .card .radio-buttons input{
+    width: min-content;
+}
+
+.login .card .radio-buttons .rb{
+    border: 1px solid var(--color6);
+    width: 120px;
+    align-items: center;
+
+    border-radius: 4px;
+}
+
+.login .card .radio-buttons .rb:active{
+    border-color: var(--purple);
+}
+
+.login .card .radio-buttons .rb label{
+    display: flex;
+    width: 100%;
+    padding: 0px 15px 0px 15px;
+    align-items: center;
+    gap: 10px;
+}
+
+
 
 .login .card .switch{
     width: 135px;

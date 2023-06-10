@@ -41,15 +41,15 @@ router.get("/tutor", sessionChecker, crud.tutorDash);
 router.get("/aluno/tutor", sessionChecker, crud.alunoTutor)
 
 router.get("/aluno/tutor/duvida", sessionChecker, function(req, res) {
-    req.body = req.query
-    console.log(req.body);
+    
     res.render("duvida", {
         style: "/css/duvida.css",
         user: req.session.user,
+        query: req.query
     })
 })
 
-router.get("/duvida/cadastro", sessionChecker, crud.cadastrarDuvida)
+router.post("/duvida/cadastro", sessionChecker, crud.cadastrarDuvida)
 
 router.get("/aluno/comprar", sessionChecker, function(req, res) {
     res.render("comprar_minutos", {

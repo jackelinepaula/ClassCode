@@ -18,9 +18,11 @@
     </div>
 
     <form action="/duvida/cadastro" method="POST" class="card section-duvida p-4">
+        <input type="text" id="idTecnologia" name="idTecnologia" value={{query.idTecnologia}}>
+        <input type="text" id="idTutor" name="idTutor" value={{query.idTutor}}>
         <div>
             <label for="assunto">Assunto</label>
-            <input type="text" class="assunto" id="assunto" placeholder="Dê um título para sua dúvida">
+            <input require type="text" class="assunto" id="assunto" name="assunto" placeholder="Dê um título para sua dúvida">
         </div>
         <div>
             <label>Adicionar imagens</label>
@@ -28,14 +30,13 @@
                 <label for="inputFile" class="add-img">
                     <span class="material-symbols-rounded">upload_file</span>
                     <span>Adicionar</span>
-                    
                 </label>
             </div>
-            <input type="file" class="inputFile" id="inputFile">
+            <input type="file" require class="inputFile" id="inputFile" name="imagens">
         </div>
         <div>
             <label for="descricao">Descrição</label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Descreva detalhadamente no que precisa de ajuda. Lembre-se: as imagens complementam tudo o que você disser aqui"></textarea>
+            <textarea require name="descricao" id="descricao" cols="30" rows="10" placeholder="Descreva detalhadamente no que precisa de ajuda. Lembre-se: as imagens complementam tudo o que você disser aqui"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Criar Dúvida</button>
