@@ -1,7 +1,7 @@
 const db = require("../models/banco")
 
 async function cadastroUsuario(req,res){
-    const {tipoUser, authID, authName, authEmail} = req.body
+    const {tipoUser, authID, authName, authEmail, authImg} = req.body
 
     const verificaUser = await verificarUserBanco(["aluno", "tutor"], {
         'email' : authEmail
@@ -15,7 +15,8 @@ async function cadastroUsuario(req,res){
         await db[tipoUser].create({
             nome: authName,
             email: authEmail,
-            authId: authID
+            authId: authID,
+            perfilImg: authImg
         }).then(() => {
             console.log("Cadastrado", authName, authEmail, authID);
         })
@@ -36,9 +37,5 @@ async function verificarUserBanco(tabelas, where){
     
     return existeUser
 }
-
-
-
-
 
 module.exports = cadastroUsuario

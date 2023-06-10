@@ -17,7 +17,7 @@ const aluno = db.sequelize.define("alunos", {
         unique: true,
     },
     nome:{ type: db.Sequelize.STRING },
-    urlImagem: { type: db.Sequelize.STRING },
+    perfilImg: { type: db.Sequelize.STRING },
     instEnsino: { type: db.Sequelize.STRING },
 },{
     timestamps: false
@@ -40,7 +40,7 @@ const tutor = db.sequelize.define("tutores", {
     email:{
         type: db.Sequelize.STRING
     },
-    urlImagem: { type: db.Sequelize.STRING },
+    perfilImg: { type: db.Sequelize.STRING },
     instEnsino: {
         type: db.Sequelize.STRING
     },
