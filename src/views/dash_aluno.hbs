@@ -3,7 +3,7 @@
     <div class="card row user-info-container d-flex flex-row">
         <div class="col-sm">
             <div class="user-message">
-                <h5 class="titulo-cor">Olá, {{data.aluno.primeiroNome}}</h5>
+                <h5 class="titulo-cor">Olá, {{user.firstName}}</h5>
                 <small class="desc">Quais são as dúvidas de hoje?</small>
             </div>
         </div>
@@ -11,14 +11,14 @@
         <div class="col-sm one">
             <div class="user-profile">
                 <div>
-                    <h5 class="titulo-cor">{{data.aluno.nome}}</h5>
+                    <h5 class="titulo-cor">{{user.name}}</h5>
                     <small class="desc">Fatec Zona Leste</small>
                 </div>
                 <div class="img">
                     <span class="material-symbols-sharp">
                         fiber_manual_record
                     </span>
-                    <img src={{data.aluno.perfilImg}} alt="Imagem de perfil do tutor">
+                    <img src={{user.img}} alt="Imagem de perfil do tutor">
                 </div>
             </div>
         </div>
