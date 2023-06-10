@@ -1,7 +1,9 @@
 
 const Tutor = require('../models/tutor.js')
 const Aluno = require('../models/aluno.js')
-const Tecnologia = require('../models/tecnologia.js')
+const Tecnologia = require('../models/tecnologia.js');
+const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
+const { tecnologia } = require('../models/banco.js');
 
 async function alunoDash(req, res) {
     try {
@@ -14,6 +16,7 @@ async function alunoDash(req, res) {
             user: req.session.user,
             data: {
                 // aluno: user,
+
                 tecnologia: tecnologia
             },
             style: "/css/dashaluno.css",
@@ -25,7 +28,7 @@ async function alunoDash(req, res) {
 }
 
 async function tutorDash(req, res) {
-    // const tutor = await Tutor.getTutor(req.session.authID)
+    // 
 
     console.log(tutor)
 
@@ -39,8 +42,30 @@ async function tutorDash(req, res) {
     })
 }
 
+async function alunoTutor(req, res){
+    const {idTecnologia} = req.query
+
+    const tecnologiaTutor = await getTecnologiaTutor(idTecnologia)
+    
+    if (tecnologiaTutor.length === 0){
+        res.send("Não tem nenhum tutor cadastrado para essa categoria")
+    } else {
+        res.render("escolha_tutores", {
+            style: "/css/tutores.css",
+            user: req.session.user,
+            nomeTecnologia: tecnologiaTutor[0].tecnologia.nomeTecnologia,
+            data: tecnologiaTutor
+        })
+    }
+}
+
+async function cadastrarDuvida(req, res){
+    
+}
 
 module.exports = {
     alunoDash,
-    tutorDash
+    tutorDash,
+    alunoTutor,
+    cadastrarDuvida
 }

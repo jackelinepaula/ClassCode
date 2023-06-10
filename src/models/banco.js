@@ -72,6 +72,8 @@ const tecnologiaTutor = db.sequelize.define("tecnologiaTutor", {
         allowNull: false,
         primaryKey: true
     }
+},{
+    timestamps: false
 })
 
 const minutos = db.sequelize.define("minutos", {
@@ -176,6 +178,7 @@ module.exports = {
     aluno,
     tutor,
     tecnologia,
+    tecnologiaTutor,
     minutos,
     duvida,
     aula

@@ -38,12 +38,18 @@ router.get("/tutor", sessionChecker, crud.tutorDash);
 
 // rotas de navegação
 
-router.get("/aluno/tutor", sessionChecker, function(req, res) {
-    res.render("escolha_tutores", {
-        style: "/css/tutores.css",
+router.get("/aluno/tutor", sessionChecker, crud.alunoTutor)
+
+router.get("/aluno/tutor/duvida", sessionChecker, function(req, res) {
+    req.body = req.query
+    console.log(req.body);
+    res.render("duvida", {
+        style: "/css/duvida.css",
         user: req.session.user,
     })
 })
+
+router.get("/duvida/cadastro", sessionChecker, crud.cadastrarDuvida)
 
 router.get("/aluno/comprar", sessionChecker, function(req, res) {
     res.render("comprar_minutos", {
@@ -52,12 +58,6 @@ router.get("/aluno/comprar", sessionChecker, function(req, res) {
     })
 })
 
-router.get("/aluno/tutor/duvida", sessionChecker, function(req, res) {
-    res.render("duvida", {
-        style: "/css/duvida.css",
-        user: req.session.user,
-    })
-})
 
 router.get("/aluno/historico", sessionChecker, function(req, res) {
     res.render("historico", {

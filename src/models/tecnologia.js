@@ -1,6 +1,6 @@
 const {tecnologia} = require('../models/banco.js')
 
-async function getTecnologia(){
+async function getTecnologia(id){
     let obj = {}
 
     const dataTecnologia = await tecnologia.findAll()
