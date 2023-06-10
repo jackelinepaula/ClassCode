@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <form action="POST" class="card section-duvida p-4">
+    <form action="/duvida/cadastro" method="POST" class="card section-duvida p-4">
         <div>
             <label for="assunto">Assunto</label>
             <input type="text" class="assunto" id="assunto" placeholder="Dê um título para sua dúvida">
@@ -35,7 +35,7 @@
         </div>
         <div>
             <label for="descricao">Descrição</label>
-           <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Descreva detalhadamente no que precisa de ajuda. Lembre-se: as imagens complementam tudo o que você disser aqui"></textarea>
+            <textarea name="descricao" id="descricao" cols="30" rows="10" placeholder="Descreva detalhadamente no que precisa de ajuda. Lembre-se: as imagens complementam tudo o que você disser aqui"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Criar Dúvida</button>
