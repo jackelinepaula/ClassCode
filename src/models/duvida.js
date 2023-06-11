@@ -1,4 +1,4 @@
-const {duvida, tecnologia, tutor} = require("./banco")
+const {duvida, tecnologia, tutor, aluno} = require("./banco")
 
 async function setDuvida({idTecnologia, idTutor, assunto, imagens, descricao, status}, userid){
     await duvida.create({
@@ -10,39 +10,44 @@ async function setDuvida({idTecnologia, idTutor, assunto, imagens, descricao, st
     })
 }
 
-async function getDuvida(id = null){
+async function getDuvida(where = null){
     let arr = []
-
     const parameters = {
         include: [
             {model: tecnologia},
-            {model: tutor}
+            {model: tutor},
+            {model: aluno}
         ],
     }
 
-    if (id !== null){
-        parameters.where = {idAluno: id}
+    if (where !== null){
+        parameters.where = where
     }
 
-    const dataDuvida = await duvida.findAll()
+    const dataDuvida = await duvida.findAll(parameters)
 
-    console.log(dataDuvida);
+    dataDuvida.map((item) => {    
+        const dataObj = item.dataValues
 
-    // dataDuvida.map((item) => {    
-    //     const dataObj = item.dataValues
+        const tutor = item.tutore
+        const tecnologia = item.tecnologia
+        const aluno = item.aluno
 
-    //     const tutor = item.tutore
-    //     const tecnologia = item.tecnologia
+        const contentObj = {
+            dataValues: dataObj,
+            tutor: {
+                id: tutor.dataValues.idTutor,
+                name: tutor.dataValues.nome,
+                img: tutor.dataValues.perfilImg,
+                instEnsino: tutor.instEnsino,
+            },
+            tecnologia: tecnologia.dataValues,
+            aluno: aluno.dataValues
+        }
 
-    //     const contentObj = {
-    //         dataValues: dataObj,
-    //         tutor: tutor.dataValues,
-    //         tecnologia: tecnologia.dataValues
-    //     }
-
-    //     arr.push(contentObj)
-    // })    
-
+        arr.push(contentObj)
+    })
+    
     return arr
 }
 

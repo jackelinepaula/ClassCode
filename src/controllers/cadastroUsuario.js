@@ -1,7 +1,7 @@
 const db = require("../models/banco")
 
 async function cadastroUsuario(req,res){
-    const {tipoUser, authID, authName, authEmail, authImg} = req.body
+    const {instEnsino,tipoUser, authID, authName, authEmail, authImg} = req.body
 
     const verificaUser = await verificarUserBanco(["aluno", "tutor"], {
         'email' : authEmail
@@ -16,7 +16,8 @@ async function cadastroUsuario(req,res){
             nome: authName,
             email: authEmail,
             authId: authID,
-            perfilImg: authImg
+            perfilImg: authImg,
+            instEnsino: instEnsino
         }).then(() => {
             console.log("Cadastrado", authName, authEmail, authID);
         })

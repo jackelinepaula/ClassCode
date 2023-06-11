@@ -16,11 +16,12 @@ async function auth(req, res) {
         req.session.authID = authID
 
         req.session.user = {
-            id: userData.idAluno,
+            id: userData.idAluno || userData.idTutor,
             name: userData.nome,
             firstName: userData.nome.split(" ")[0],
             email: userData.authEmail,
             img: userData.perfilImg,
+            instEnsino: userData.instEnsino
         }
 
         console.log('\x1b[33m%s\x1b[0m', '[session] Usuário Logado: ' + req.session.user.name);

@@ -65,7 +65,7 @@
                                     <div class="card-content">
                                         <div class="card-text">
                                             <h5 class="nome">{{user.name}}</h5>
-                                            <p class="academic desc">Fatec ZL</p>
+                                            <p class="academic desc">{{user.instEnsino}}</p>
                                             <p class="academic desc">Engenheiro de Software</p>
                                         </div>
                                         <div class="card-img">
@@ -93,60 +93,22 @@
         {{!-- bootstrap class --}}
         <div class="container">
             <div class="row">
+                {{#each data.duvidas}}
                 <div class="col-sm">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Crud com NodeJS e Firebase</h5>
+                            <h5 class="card-title">{{dataValues.assuntoDuvida}}</h5>
                             <h6 class="card-subtitle desc"><span class="material-symbols-sharp">
                                     fiber_manual_record
-                                </span>Luffy</h6>
-                            <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs,
-                                pois o
-                                maluco do meu prof...
-                            </p>
+                                </span>{{aluno.nome}}</h6>
+                            <p class="card-text desc">{{dataValues.descricaoDuvida}}</p>
                             <div class="links">
-                                <a href="#" class="card-link">NodeJS</a>
-                                <a href="#" class="card-link">Firebase</a>
+                                <a href="#" class="card-link">{{tecnologia.nomeTecnologia}}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm ">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Centralizar div</h5>
-                            <h6 class="card-subtitle desc"><span class="material-symbols-sharp" style="color: orange">
-                                    fiber_manual_record
-                                </span>Nami</h6>
-                            <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs,
-                                pois o
-                                maluco do meu prof...
-                            </p>
-                            <div class="links">
-                                <a href="#" class="card-link">NodeJS</a>
-                                <a href="#" class="card-link">Firebase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Implementação do banco de dados em Java</h5>
-                            <h6 class="card-subtitle desc"><span class="material-symbols-sharp" style="color: gray">
-                                    fiber_manual_record
-                                </span>Usopp</h6>
-                            <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e nodejs,
-                                pois o
-                                maluco do meu prof...
-                            </p>
-                            <div class="links">
-                                <a href="#" class="card-link">NodeJS</a>
-                                <a href="#" class="card-link">Firebase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </section>
