@@ -27,11 +27,12 @@ async function alunoDash(req, res) {
 }
 
 async function tutorDash(req, res) {
-    console.log(req.session.user)
+    const duvidas = await getDuvida({idTutor: req.session.user.id})
+    console.log(duvidas)
     res.render("dash_tutor", {
         user: req.session.user,
         data: {
-            // tutor: tutor
+            duvidas
         },
         style: "/css/dashtutor.css",
         layout: "tutor",
@@ -60,11 +61,13 @@ function cadastrarDuvida(req, res){
     res.redirect("/aluno/historico")
 }
 
-function getHistorico(req, res){
-    getDuvida(req.session.user.id)
+async function getHistorico(req, res){
+    const duvidas = await getDuvida({idAluno: req.session.user.id})
+
     res.render("historico", {
         style: "/css/historico.css",
         user: req.session.user,
+        data: duvidas
     })
 }
 

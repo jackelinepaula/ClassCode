@@ -41,7 +41,6 @@ router.get("/tutor", sessionChecker, crud.tutorDash);
 router.get("/aluno/tutor", sessionChecker, crud.alunoTutor)
 
 router.get("/aluno/tutor/duvida", sessionChecker, function(req, res) {
-    
     res.render("duvida", {
         style: "/css/duvida.css",
         user: req.session.user,

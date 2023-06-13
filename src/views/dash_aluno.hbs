@@ -12,7 +12,7 @@
             <div class="user-profile">
                 <div>
                     <h5 class="titulo-cor">{{user.name}}</h5>
-                    <small class="desc">Fatec Zona Leste</small>
+                    <small class="desc">{{user.instEnsino}}</small>
                 </div>
                 <div class="img">
                     <span class="material-symbols-sharp">
@@ -43,7 +43,7 @@
                 <form action="/aluno/tutor" method="get">
                     <button name="idTecnologia" value={{idTecnologia}} class="card p-3 categoria-card">
                         <span>{{nomeTecnologia}}</span>
-                        <img src="/img/icon/icons8-html-5.svg" alt="">
+                        <img src="/img/icon/{{nomeTecnologia}}.svg" alt="">
                     </button>
                 </form>
 

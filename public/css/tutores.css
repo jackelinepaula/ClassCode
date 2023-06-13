@@ -32,6 +32,7 @@
 .item-tutor .user-info .img {
     position: relative;
     width: 60px;
+    height: 60px;
 }
 
 .item-tutor .user-info .img span{
@@ -44,6 +45,7 @@
 
 .item-tutor .user-info .img img{
     width: 100%;
+    
 }
 /* Textos */
 .item-tutor .user-info .texts p{

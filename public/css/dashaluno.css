@@ -48,6 +48,7 @@
 .user-info-container .user-profile .img span{
     position: absolute;
     color: #09a33d;
+    font-size: 1.9rem;
     bottom: -5px;
     right: -5px;
 }

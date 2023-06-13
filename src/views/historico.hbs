@@ -39,54 +39,20 @@
             <div class="tab-pane fade show active" id="nav-espera" role="tabpanel" aria-labelledby="nav-espera-tab" tabindex="0">
                 <div class="container aulas">
                     <div class="row">
-                        <div class="col-sm">
+                        {{#each data}}
+                        <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Centralizar div</h5>
-                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
-                                        nodejs, pois o
-                                        maluco do meu prof...
-                                    </p>
+                                    <h5 class="card-title">{{dataValues.assuntoDuvida}}</h5>
+                                    <p class="card-text desc">{{dataValues.descricaoDuvida}}</p>
                                     <div class="links">
-                                        <a href="#" class="card-link">NodeJS</a>
-                                        <a href="#" class="card-link">Firebase</a>
+                                        <a href="#" class="card-link">{{tecnologia.nomeTecnologia}}</a>
                                     </div>
-                                    <img src="/img/zoro.png" alt="">
+                                    <img src={{tutor.img}} alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm ">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Centralizar div</h5>
-                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
-                                        nodejs, pois o
-                                        maluco do meu prof...
-                                    </p>
-                                    <div class="links">
-                                        <a href="#" class="card-link">NodeJS</a>
-                                        <a href="#" class="card-link">Firebase</a>
-                                    </div>
-                                    <img src="/img/zoro.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Centralizar div</h5>
-                                    <p class="card-text desc">Olá preciso de ajuda para fazer um crud com firebase e
-                                        nodejs, pois o
-                                        maluco do meu prof...
-                                    </p>
-                                    <div class="links">
-                                        <a href="#" class="card-link">NodeJS</a>
-                                        <a href="#" class="card-link">Firebase</a>
-                                    </div>
-                                    <img src="/img/zoro.png" alt="">
-                                </div>
-                            </div>
-                        </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
