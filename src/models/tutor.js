@@ -6,7 +6,6 @@ function existeTutor(where){
             return true
         }
         return false
-    }).catch((e) => {
     })
 }
 
@@ -16,7 +15,8 @@ function setTutor({authName, authEmail, authID, authImg, instEnsino, profissao})
         email: authEmail,
         authId: authID,
         perfilImg: authImg,
-        instEnsino: instEnsino
+        instEnsino: instEnsino,
+        profissao
     }).then(() => {
         console.log('\x1b[33m%s\x1b[0m', "[sequelize] Tutor Cadastrado: " + authName)
     })
@@ -36,4 +36,20 @@ async function getTutor(id){
     return obj
 }
 
-module.exports = { getTutor, setTutor, existeTutor}
+function editarTutor({idTutor, nome, instEnsino, profissao}){
+    Tutor.update({
+        nome,
+        instEnsino,
+        profissao
+    },{
+        where: { idTutor }
+    }).then(() => {
+        res.redirect("/tutor/dash")
+    })
+}
+
+function deletarTutor(id){
+    Aluno.destroy({ where: { idTutor: id }}).then(res.redirect("/logout"))
+}
+
+module.exports = { getTutor, setTutor, existeTutor, editarTutor, deletarTutor}

@@ -2,7 +2,7 @@ const Tutor = require('../models/tutor.js')
 const Aluno = require('../models/aluno.js')
 
 async function cadastroUsuario(req,res){
-    const {instEnsino,tipoUser, authID, authName, authEmail, authImg} = req.body
+    const {tipoUser, authEmail} = req.body
 
     const verificaUser = await verificarUserBanco(["Aluno", "Tutor"], {
         'email' : authEmail

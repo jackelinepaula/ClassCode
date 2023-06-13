@@ -41,6 +41,7 @@ const Tutor = db.sequelize.define("tutores", {
         type: db.Sequelize.STRING
     },
     perfilImg: { type: db.Sequelize.STRING },
+    profissao: { type: db.Sequelize.STRING },
     instEnsino: {
         type: db.Sequelize.STRING
     },

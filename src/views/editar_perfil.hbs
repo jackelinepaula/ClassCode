@@ -1,0 +1,53 @@
+<div class="container-sm">
+
+    <div class="section-title mb-3">
+        <div class="title-page d-flex gap-2 align-items-center">
+            <a href="/aluno/perfil">
+                <span class="material-symbols-rounded">arrow_back</span>
+            </a>
+            <h4>Editar perfil</h4>
+        </div>
+
+        <div class="user-container">
+            <span class="user-name">Olá,{{user.firstName}}!</span>
+            <div class="img">
+                <img src={{user.img}} alt="Imagem de perfil">
+                <i class="status-icon"></i>
+            </div>
+        </div>
+    </div>
+
+
+  <section class="perfil-aluno">
+    <div class="card perfil">
+
+      <div class="card-body">
+        <div class="img">
+          <img src={{user.img}} alt="" />
+        </div>
+
+        <div class="input">
+          <label for="forName">Nome</label>
+          <input type="text" value="Monkey D. Luffy">
+        </div>
+
+        <div class="input">
+          <label for="forEnsino">Instituição de Ensino</label>
+          <input type="text" value="Fatec Zona Leste">
+        </div>
+
+        <div class="input">
+          <label for="forEnsino">Conta Google</label>
+          <p class="p-ensino">jakelinebanana@gmail.com</p>
+        </div>
+
+        <div class="btn-save">
+          <a style="text-decoration: none;" href="/aluno/editperfil/"><button>Salvar<span class="material-symbols-rounded">check_box</span></button></a>
+        </div>
+      </div>
+
+  </div>
+  </section>
+
+
+</div>

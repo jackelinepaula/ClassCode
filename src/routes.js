@@ -26,6 +26,7 @@ router.get("/cadastro", function(req, res){
 router.post("/cadastrar", cadastroUsuario)
 
 router.get('/logout', (req, res) => {
+    console.log('\x1b[33m%s\x1b[0m', "[sequelize] Aluno Cadastrado: " + req.session.user.name)
     req.session.logged = false
     req.session.authID = null
     req.session.user = null
@@ -59,6 +60,9 @@ router.get("/aluno/comprar", sessionChecker, function(req, res) {
 
 router.get("/aluno/historico", sessionChecker, crud.getHistorico)
 
-router.get("/aluno/perfil", crud.perfil)
+router.get("/aluno/perfil", sessionChecker, crud.perfil)
+
+router.get("/aluno/editperfil", sessionChecker, crud.editPerfil)
+
 
 module.exports = router

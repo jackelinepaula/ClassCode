@@ -16,6 +16,8 @@ async function getTecnologiaTutor(id = null){
     }
 
     const dataTecnologia = await TecnologiaTutor.findAll(parameters)
+    if (dataTecnologia.length === 0) return null
+
 
     dataTecnologia.map((item) => {    
         const dataObj = item.dataValues

@@ -25,6 +25,7 @@ async function getDuvida(where = null){
     }
 
     const dataDuvida = await Duvida.findAll(parameters)
+    if (dataDuvida.length === 0) return null
 
     dataDuvida.map((item) => {    
         const dataObj = item.dataValues
