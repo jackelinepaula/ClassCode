@@ -1,4 +1,4 @@
-const {tecnologiaTutor, tecnologia, tutor} = require('../models/banco.js');
+const {TecnologiaTutor, Tecnologia, Tutor} = require('../models/banco.js');
 
 
 async function getTecnologiaTutor(id = null){
@@ -6,8 +6,8 @@ async function getTecnologiaTutor(id = null){
 
     const parameters = {
         include: [
-            {model: tecnologia},
-            {model: tutor}
+            {model: Tecnologia},
+            {model: Tutor}
         ],
     }
 
@@ -15,7 +15,7 @@ async function getTecnologiaTutor(id = null){
         parameters.where = {idTecnologia: id}
     }
 
-    const dataTecnologia = await tecnologiaTutor.findAll(parameters)
+    const dataTecnologia = await TecnologiaTutor.findAll(parameters)
 
     dataTecnologia.map((item) => {    
         const dataObj = item.dataValues

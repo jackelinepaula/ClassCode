@@ -59,4 +59,6 @@ router.get("/aluno/comprar", sessionChecker, function(req, res) {
 
 router.get("/aluno/historico", sessionChecker, crud.getHistorico)
 
+router.get("/aluno/perfil", crud.perfil)
+
 module.exports = router

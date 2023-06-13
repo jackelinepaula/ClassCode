@@ -1,42 +1,34 @@
-const db = require("../models/banco")
+const Tutor = require('../models/tutor.js')
+const Aluno = require('../models/aluno.js')
 
 async function cadastroUsuario(req,res){
     const {instEnsino,tipoUser, authID, authName, authEmail, authImg} = req.body
 
-    const verificaUser = await verificarUserBanco(["aluno", "tutor"], {
+    const verificaUser = await verificarUserBanco(["Aluno", "Tutor"], {
         'email' : authEmail
     })
 
+    console.log(verificaUser);
     console.log("Usuario existe? " + verificaUser);
 
     if (verificaUser){
         res.send("Email já Cadastrado no sistema")
     } else {
-        await db[tipoUser].create({
-            nome: authName,
-            email: authEmail,
-            authId: authID,
-            perfilImg: authImg,
-            instEnsino: instEnsino
-        }).then(() => {
-            console.log("Cadastrado", authName, authEmail, authID);
-        })
+        const model = tipoUser === "Aluno" ? Aluno : Tutor
+        console.log(model);
+        model["set" + tipoUser](req.body)
+
         res.redirect(307, "/auth")
     }
 }
 
-async function verificarUserBanco(tabelas, where){
-    let existeUser = false
-
+function verificarUserBanco(tabelas, where){
     for (let i = 0; i < tabelas.length; i++) {
-        await db[tabelas[i]].findAll({ where: where }).then((data) => {
-            if (data.length !== 0) {
-                return existeUser = true
-            }
+        const model = tabelas[i] === "Aluno" ? Aluno : Tutor
+        return model["existe" + tabelas[i]](where).then((data) => {
+            return data 
         })
-    }
-    
-    return existeUser
+    } 
 }
 
 module.exports = cadastroUsuario

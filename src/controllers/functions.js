@@ -71,10 +71,15 @@ async function getHistorico(req, res){
     })
 }
 
+async function perfil(req, res){
+    res.render("perfil_aluno")
+}
+
 module.exports = {
     alunoDash,
     tutorDash,
     alunoTutor,
     cadastrarDuvida,
-    getHistorico
+    getHistorico,
+    perfil
 }
