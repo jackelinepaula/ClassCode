@@ -59,30 +59,7 @@
             <div class="tab-pane fade" id="nav-tutor" role="tabpanel" aria-labelledby="nav-tutor-tab" tabindex="0">
                 <div class="row tutores">
 
-                    <div class="col-sm">
-                        {{#each data.tutor}}
-                        <div class="card d-flex flex-column gap-4 p-4">
-                            <div class="card-body d-flex justify-content-start align-items-center gap-3">
-                                <div class="img">
-                                    <span class="material-symbols-sharp">
-                                        fiber_manual_record
-                                    </span>
-                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
-                                </div>
-                                <div class="texts">
-                                    <h5>{{nome}}</h5>
-                                    <p>UFABC</p>
-                                </div>
-                            </div>
-                            <div class="card-categorias d-flex align-items-center gap-2">
-                                <p class="categoria p-1">NodeJS</p>
-                                <p class="categoria p-1">Assembly</p>
-                                <p class="categoria p-1">Docker</p>
-                            </div>
-                        </div>
-                        {{/each}}
-
-                    </div>
+                    {{#each data}}
                     <div class="col-sm">
                         <div class="card d-flex flex-column gap-4 p-4">
                             <div class="card-body d-flex justify-content-start align-items-center gap-3">
@@ -90,43 +67,20 @@
                                     <span class="material-symbols-sharp">
                                         fiber_manual_record
                                     </span>
-                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
+                                    <img src="{{tutor.img}}" alt="Imagem de perfil do tutor">
                                 </div>
                                 <div class="texts">
-                                    <h5>Roronoa Zoro</h5>
-                                    <p>UFABC</p>
+                                    <h5>{{tutor.name}}</h5>
+                                    <p>{{tutor.instEnsino}}</p>
                                 </div>
                             </div>
                             <div class="card-categorias d-flex align-items-center gap-2">
-                                <p class="categoria p-1">NodeJS</p>
-                                <p class="categoria p-1">Assembly</p>
-                                <p class="categoria p-1">Docker</p>
+                                <p class="categoria p-1">Node JS</p>
                             </div>
                         </div>
-
                     </div>
-                    <div class="col-sm">
-                        <div class="card d-flex flex-column gap-4 p-4">
-                            <div class="card-body d-flex justify-content-start align-items-center gap-3">
-                                <div class="img">
-                                    <span class="material-symbols-sharp">
-                                        fiber_manual_record
-                                    </span>
-                                    <img src="/img/Zoro.png" alt="Imagem de perfil do tutor">
-                                </div>
-                                <div class="texts">
-                                    <h5>Roronoa Zoro</h5>
-                                    <p>UFABC</p>
-                                </div>
-                            </div>
-                            <div class="card-categorias d-flex align-items-center gap-2">
-                                <p class="categoria p-1">NodeJS</p>
-                                <p class="categoria p-1">Assembly</p>
-                                <p class="categoria p-1">Docker</p>
-                            </div>
-                        </div>
+                    {{/each}}
 
-                    </div>
 
                 </div>
 

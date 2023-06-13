@@ -64,9 +64,11 @@
 
 .aulas .card img{
     width: 50px;
+    height: 50px;
     margin-top: 2rem;
     border: 2px solid #fff;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Tutores */
@@ -90,6 +92,9 @@
 
 .tutores .card .card-body .img img{
     width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .tutores .card .card-body .img span{

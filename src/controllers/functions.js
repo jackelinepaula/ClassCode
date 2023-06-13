@@ -1,6 +1,8 @@
 const Tecnologia = require('../models/tecnologia.js');
 const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
 const { setDuvida, getDuvida } = require('../models/duvida.js');
+const aluno = require('../models/aluno.js')
+const tutor = require('../models/tutor.js')
 
 async function alunoDash(req, res) {
     try {
@@ -55,6 +57,7 @@ function cadastrarDuvida(req, res){
 
 async function getHistorico(req, res){
     const duvidas = await getDuvida({idAluno: req.session.user.id})
+    console.log(duvidas);
     res.render("historico", {
         style: "/css/historico.css",
         user: req.session.user,
@@ -62,18 +65,58 @@ async function getHistorico(req, res){
     })
 }
 
-async function perfil(req, res){
+async function perfilAluno(req, res){
+    console.log(req.session.user.id);
+    const dataUser = await aluno.getAluno({
+        where: {idAluno: req.session.user.id}
+    }) 
+    console.log(dataUser)
+
     res.render("perfil", {
         style: "/css/perfil.css",
-        user: req.session.user
+        user: dataUser,
+        userSession: req.session.user
+    })
+}
+
+async function perfilTutor(req, res){
+    console.log(req.session.user.id);
+    const dataUser = await tutor.getTutor({
+        where: {idTutor: req.session.user.id}
+    }) 
+    console.log(dataUser)
+
+    res.render("perfil", {
+        style: "/css/perfil.css",
+        user: dataUser,
+        userSession: req.session.user
     })
 }
 
 async function editPerfil(req, res){
+    const dataUser = await aluno.getAluno({
+        where: {idAluno: req.session.user.id}
+    }) 
+
     res.render("editar_perfil", {
         style: "/css/perfil.css",
-        user: req.session.user
+        user: dataUser,
+        userSession: req.session.user
     })
+}
+
+async function updatePerfil(req, res){
+    console.log(req.query)
+
+    const up = {
+        idAluno: req.session.user.id, 
+        nome: req.query.nome,
+        instEnsino: req.query.instEnsino
+    }
+    await aluno.editarAluno(up)
+    
+    
+    res.redirect('/aluno/perfil')
 }
 
 module.exports = {
@@ -82,6 +125,7 @@ module.exports = {
     alunoTutor,
     cadastrarDuvida,
     getHistorico,
-    perfil,
-    editPerfil
+    perfilAluno,
+    editPerfil,
+    updatePerfil
 }

@@ -9,9 +9,9 @@
         </div>
 
         <div class="user-container">
-            <span class="user-name">Olá,{{user.firstName}}!</span>
+            <span class="user-name">Olá, {{userSession.firstName}}!</span>
             <div class="img">
-                <img src={{user.img}} alt="Imagem de perfil">
+                <img src={{userSession.img}} alt="Imagem de perfil">
                 <i class="status-icon"></i>
             </div>
         </div>
@@ -23,27 +23,27 @@
 
       <div class="card-body">
         <div class="img">
-          <img src={{user.img}} alt="" />
+          <img src={{user.perfilImg}} alt="">
         </div>
      
 
         <div class="input">
           <label for="forName">Nome</label>
-          <p class="p-nome">{{user.}}</p>
+          <p class="p-nome">{{user.nome}}</p>
         </div>
 
         <div class="input">
           <label for="forEnsino">Instituição de Ensino</label>
-          <p class="p-ensino">Fatec Zona Leste</p>
+          <p class="p-ensino">{{user.instEnsino}}</p>
         </div>
 
         <div class="input">
           <label for="forEnsino">Conta Google</label>
-          <p class="p-ensino">jakelinebanana@gmail.com</p>
+          <p class="p-ensino">{{user.email}}</p>
         </div>
 
         <div class="btn-edit">
-          <a style="text-decoration: none;" href="/aluno/editperfil/"><button>Editar<span class="material-symbols-rounded">edit</span></button></a>
+          <a style="text-decoration: none;" href="/aluno/edit/"><button>Editar<span class="material-symbols-rounded">edit</span></button></a>
         </div>
       </div>
 
