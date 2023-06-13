@@ -1,6 +1,6 @@
 const db = require("./db")
 
-const aluno = db.sequelize.define("alunos", {
+const Aluno = db.sequelize.define("alunos", {
     idAluno: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -23,7 +23,7 @@ const aluno = db.sequelize.define("alunos", {
     timestamps: false
 })
 
-const tutor = db.sequelize.define("tutores", {
+const Tutor = db.sequelize.define("tutores", {
     idTutor: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -41,6 +41,7 @@ const tutor = db.sequelize.define("tutores", {
         type: db.Sequelize.STRING
     },
     perfilImg: { type: db.Sequelize.STRING },
+    profissao: { type: db.Sequelize.STRING },
     instEnsino: {
         type: db.Sequelize.STRING
     },
@@ -51,7 +52,7 @@ const tutor = db.sequelize.define("tutores", {
     timestamps: false
 })
 
-const tecnologia = db.sequelize.define("tecnologias", {
+const Tecnologia = db.sequelize.define("tecnologias", {
     idTecnologia: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -65,7 +66,7 @@ const tecnologia = db.sequelize.define("tecnologias", {
     timestamps: false
 })
 
-const tecnologiaTutor = db.sequelize.define("tecnologiaTutor", {
+const TecnologiaTutor = db.sequelize.define("tecnologiaTutor", {
     idTecnologiaTutor: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -76,7 +77,7 @@ const tecnologiaTutor = db.sequelize.define("tecnologiaTutor", {
     timestamps: false
 })
 
-const minutos = db.sequelize.define("minutos", {
+const Minutos = db.sequelize.define("minutos", {
     idMinutos: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -90,7 +91,7 @@ const minutos = db.sequelize.define("minutos", {
     timestamps: false
 })
 
-const duvida = db.sequelize.define("duvidas", {
+const Duvida = db.sequelize.define("duvidas", {
     idDuvida: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -107,7 +108,7 @@ const duvida = db.sequelize.define("duvidas", {
     timestamps: false
 })
 
-const aula = db.sequelize.define("aulas", {
+const Aula = db.sequelize.define("aulas", {
     idAula: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -125,47 +126,47 @@ const aula = db.sequelize.define("aulas", {
 })
 
 // Chaves Estrangeiras
-tecnologiaTutor.belongsTo(tutor, {
+TecnologiaTutor.belongsTo(Tutor, {
     constraint: true,
     foreignKey: 'idTutor'
 })
 
-tecnologiaTutor.belongsTo(tecnologia, {
+TecnologiaTutor.belongsTo(Tecnologia, {
     constraint: true,
     foreignKey: 'idTecnologia'
 })
 
-minutos.belongsTo(aluno, {
+Minutos.belongsTo(Aluno, {
     constraint: true, 
     foreignKey: 'idAluno'
 })
 
-duvida.belongsTo(aluno, {
+Duvida.belongsTo(Aluno, {
     constraint: true, 
     foreignKey: 'idAluno'
 })
 
-duvida.belongsTo(tecnologia, {
+Duvida.belongsTo(Tecnologia, {
     constraint: true, 
     foreignKey: 'idTecnologia'
 })
 
-duvida.belongsTo(tutor, {
+Duvida.belongsTo(Tutor, {
     constraint: true, 
     foreignKey: 'idTutor'
 })
 
-aula.belongsTo(duvida, {
+Aula.belongsTo(Duvida, {
     constraint: true, 
     foreignKey: 'idDuvida'
 })
 
-aula.belongsTo(tutor, {
+Aula.belongsTo(Tutor, {
     constraint: true, 
     foreignKey: 'idTutor'
 })
 
-aula.belongsTo(aluno, {
+Aula.belongsTo(Aluno, {
     constraint: true, 
     foreignKey: 'idAluno'
 })
@@ -178,11 +179,11 @@ aula.belongsTo(aluno, {
 
 
 module.exports = {
-    aluno,
-    tutor,
-    tecnologia,
-    tecnologiaTutor,
-    minutos,
-    duvida,
-    aula
+    Aluno,
+    Tutor,
+    Tecnologia,
+    TecnologiaTutor,
+    Minutos,
+    Duvida,
+    Aula
 }

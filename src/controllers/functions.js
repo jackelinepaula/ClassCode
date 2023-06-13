@@ -1,16 +1,10 @@
-
-const Tutor = require('../models/tutor.js')
-const Aluno = require('../models/aluno.js')
 const Tecnologia = require('../models/tecnologia.js');
 const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
 const { setDuvida, getDuvida } = require('../models/duvida.js');
 
 async function alunoDash(req, res) {
     try {
-
-        // const user = await Aluno.getAluno(req.session.authID)
         const tecnologia = await Tecnologia.getTecnologia()
-        
         res.render("dash_aluno", {
             user: req.session.user,
             data: {
@@ -20,7 +14,6 @@ async function alunoDash(req, res) {
             },
             style: "/css/dashaluno.css",
         })
-
     } catch (error) {
         res.send("Erro" + error)
     }
@@ -41,7 +34,6 @@ async function tutorDash(req, res) {
 
 async function alunoTutor(req, res){
     const {idTecnologia} = req.query
-
     const tecnologiaTutor = await getTecnologiaTutor(idTecnologia)
     
     if (tecnologiaTutor.length === 0){
@@ -63,11 +55,24 @@ function cadastrarDuvida(req, res){
 
 async function getHistorico(req, res){
     const duvidas = await getDuvida({idAluno: req.session.user.id})
-
     res.render("historico", {
         style: "/css/historico.css",
         user: req.session.user,
         data: duvidas
+    })
+}
+
+async function perfil(req, res){
+    res.render("perfil", {
+        style: "/css/perfil.css",
+        user: req.session.user
+    })
+}
+
+async function editPerfil(req, res){
+    res.render("editar_perfil", {
+        style: "/css/perfil.css",
+        user: req.session.user
     })
 }
 
@@ -76,5 +81,7 @@ module.exports = {
     tutorDash,
     alunoTutor,
     cadastrarDuvida,
-    getHistorico
+    getHistorico,
+    perfil,
+    editPerfil
 }

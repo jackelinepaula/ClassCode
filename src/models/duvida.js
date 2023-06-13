@@ -1,7 +1,7 @@
-const {duvida, tecnologia, tutor, aluno} = require("./banco")
+const {Duvida, Tecnologia, Tutor, Aluno} = require("./banco")
 
 async function setDuvida({idTecnologia, idTutor, assunto, imagens, descricao, status}, userid){
-    await duvida.create({
+    await Duvida.create({
         assuntoDuvida: assunto,
         descricaoDuvida: descricao,
         idTecnologia: idTecnologia,
@@ -14,9 +14,9 @@ async function getDuvida(where = null){
     let arr = []
     const parameters = {
         include: [
-            {model: tecnologia},
-            {model: tutor},
-            {model: aluno}
+            {model: Tecnologia},
+            {model: Tutor},
+            {model: Aluno}
         ],
     }
 
@@ -24,7 +24,8 @@ async function getDuvida(where = null){
         parameters.where = where
     }
 
-    const dataDuvida = await duvida.findAll(parameters)
+    const dataDuvida = await Duvida.findAll(parameters)
+    if (dataDuvida.length === 0) return null
 
     dataDuvida.map((item) => {    
         const dataObj = item.dataValues

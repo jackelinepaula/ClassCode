@@ -1,21 +1,21 @@
-const db = require("../models/banco")
+const Tutor = require('../models/tutor.js')
+const Aluno = require('../models/aluno.js')
 
 async function auth(req, res) {
     const {authID, authEmail, authName} = req.body
-
-    const dados = await verificarTipoUser(["aluno", "tutor"], {
-        'authId': authID
-    })
+    
+    const dados = await verificarTipoUser(["Aluno", "Tutor"], authID)
 
     if (dados === null) {
         res.redirect("/cadastro")
     } else {
-        const userData = await dados.dataUser[0].dataValues
+        const userData = await dados.dataUser
 
         req.session.logged = true
         req.session.authID = authID
 
         req.session.user = {
+            tipoUser: dados.tipoUser,
             id: userData.idAluno || userData.idTutor,
             name: userData.nome,
             firstName: userData.nome.split(" ")[0],
@@ -30,20 +30,26 @@ async function auth(req, res) {
     }
 }
 
-async function verificarTipoUser(tabelas, where){
-    let obj = null
-    for (let i = 0; i < tabelas.length; i++) {
-        await db[tabelas[i]].findAll({ where: where }).then((data) => {
-            if (data.length > 0){
-                obj = {
-                    tipoUser: tabelas[i],
-                    dataUser: data
-                }
-            }
-        })
-    }
+async function verificarTipoUser(tabelas, id){
+    let obj = {}
     
-    return obj
+    for (let i = 0; i < tabelas.length; i++) {
+        let model = {}
+        if(tabelas[i] === "Aluno"){
+            model = Aluno
+            obj.tipoUser = "aluno"
+        }else {
+            model = Tutor
+            obj.tipoUser = "tutor"
+        }
+
+        obj.dataUser = await model["get" + tabelas[i]](id)
+        
+        if(obj.dataUser !== null){
+            return obj
+        }
+    }
+    return null
 }
 
 
