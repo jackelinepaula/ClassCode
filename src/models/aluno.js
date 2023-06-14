@@ -22,12 +22,10 @@ function setAluno({authName, authEmail, authID, authImg, instEnsino}){
     })
 }
 
-async function getAluno(id){
+async function getAluno(where){
     let obj = {}
     
-    const alunos = await Aluno.findAll({
-        where: {authId: id}
-    })
+    const alunos = await Aluno.findAll(where)
     if (alunos.length === 0) return null
 
     obj = alunos[0].dataValues
@@ -37,18 +35,19 @@ async function getAluno(id){
 }
 
 function editarAluno({idAluno, nome, instEnsino}){
+    console.log(idAluno, nome, instEnsino)
     Aluno.update({
-        nome,
-        instEnsino
+        nome: nome,
+        instEnsino: instEnsino
     },{
-        where: { idAluno }
+        where: { idAluno: idAluno }
     }).then(() => {
-        res.redirect("/aluno/dash")
+        return "Dados atualizados"
     })
 }
 
-function deletarAluno(id){
-    Aluno.destroy({ where: { idAluno: id }}).then(res.redirect("/logout"))
+function deletarUser(id){
+    Aluno.destroy({ where: { idAluno: id }})
 }
 
-module.exports = { existeAluno, getAluno, setAluno, editarAluno, deletarAluno}
+module.exports = { existeAluno, getAluno, setAluno, editarAluno, deletarUser}

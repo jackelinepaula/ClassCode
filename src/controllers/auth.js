@@ -19,10 +19,11 @@ async function auth(req, res) {
             id: userData.idAluno || userData.idTutor,
             name: userData.nome,
             firstName: userData.nome.split(" ")[0],
-            email: userData.authEmail,
+            email: userData.email,
             img: userData.perfilImg,
             instEnsino: userData.instEnsino
         }
+
 
         console.log('\x1b[33m%s\x1b[0m', '[session] Usuário Logado: ' + req.session.user.name);
         
@@ -43,7 +44,9 @@ async function verificarTipoUser(tabelas, id){
             obj.tipoUser = "tutor"
         }
 
-        obj.dataUser = await model["get" + tabelas[i]](id)
+        obj.dataUser = await model["get" + tabelas[i]]({
+            where: {authId: id}
+        })
         
         if(obj.dataUser !== null){
             return obj

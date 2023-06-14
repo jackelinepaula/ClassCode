@@ -26,12 +26,14 @@ router.get("/cadastro", function(req, res){
 router.post("/cadastrar", cadastroUsuario)
 
 router.get('/logout', (req, res) => {
-    console.log('\x1b[33m%s\x1b[0m', "[sequelize] Aluno Cadastrado: " + req.session.user.name)
+    console.log('\x1b[33m%s\x1b[0m', "[sequelize] Usuário Desconectado: " + req.session.user.name)
     req.session.logged = false
     req.session.authID = null
     req.session.user = null
     res.redirect("/")
 })
+
+router.get("/deletaruser", crud.deletarUser)
 
 router.get('/aluno', sessionChecker, crud.alunoDash);
 
@@ -60,9 +62,10 @@ router.get("/aluno/comprar", sessionChecker, function(req, res) {
 
 router.get("/aluno/historico", sessionChecker, crud.getHistorico)
 
-router.get("/aluno/perfil", sessionChecker, crud.perfil)
+router.get("/aluno/perfil", sessionChecker, crud.perfilAluno)
 
-router.get("/aluno/editperfil", sessionChecker, crud.editPerfil)
+router.get("/aluno/edit", sessionChecker, crud.editPerfil)
 
+router.get("/aluno/edit/update", crud.updatePerfil)
 
 module.exports = router

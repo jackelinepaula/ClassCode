@@ -22,12 +22,10 @@ function setTutor({authName, authEmail, authID, authImg, instEnsino, profissao})
     })
 }
 
-async function getTutor(id){
+async function getTutor(where){
     let obj = {}
 
-    const tutores = await Tutor.findAll({
-        where: {authId: id}
-    })
+    const tutores = await Tutor.findAll(where)
     if (tutores.length === 0) return null
 
     obj = tutores[0].dataValues
@@ -48,8 +46,9 @@ function editarTutor({idTutor, nome, instEnsino, profissao}){
     })
 }
 
-function deletarTutor(id){
-    Aluno.destroy({ where: { idTutor: id }}).then(res.redirect("/logout"))
+function deletarUser(id){
+    Tutor.destroy({ where: { idTutor: id }})
 }
 
-module.exports = { getTutor, setTutor, existeTutor, editarTutor, deletarTutor}
+
+module.exports = { getTutor, setTutor, existeTutor, editarTutor, deletarUser}

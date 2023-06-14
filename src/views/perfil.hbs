@@ -1,21 +1,21 @@
 <div class="container-sm">
 
-    <div class="section-title mb-3">
-        <div class="title-page d-flex gap-2 align-items-center">
-            <a href="/aluno">
-                <span class="material-symbols-rounded">arrow_back</span>
-            </a>
-            <h4>Perfil</h4>
-        </div>
-
-        <div class="user-container">
-            <span class="user-name">Olá,{{user.firstName}}!</span>
-            <div class="img">
-                <img src={{user.img}} alt="Imagem de perfil">
-                <i class="status-icon"></i>
-            </div>
-        </div>
+  <div class="section-title mb-3">
+    <div class="title-page d-flex gap-2 align-items-center">
+      <a href="/aluno">
+        <span class="material-symbols-rounded">arrow_back</span>
+      </a>
+      <h4>Perfil</h4>
     </div>
+
+    <div class="user-container">
+      <span class="user-name">Olá, {{userSession.firstName}}!</span>
+      <div class="img">
+        <img src="{{userSession.img}}" alt="Imagem de perfil">
+        <i class="status-icon"></i>
+      </div>
+    </div>
+  </div>
 
 
   <section class="perfil-aluno">
@@ -23,35 +23,58 @@
 
       <div class="card-body">
         <div class="img">
-          <img src={{user.img}} alt="" />
+          <img src="{{user.perfilImg}}" alt="">
         </div>
-     
+
 
         <div class="input">
           <label for="forName">Nome</label>
-          <p class="p-nome">{{user.}}</p>
+          <p class="p-nome">{{user.nome}}</p>
         </div>
 
         <div class="input">
           <label for="forEnsino">Instituição de Ensino</label>
-          <p class="p-ensino">Fatec Zona Leste</p>
+          <p class="p-ensino">{{user.instEnsino}}</p>
         </div>
 
         <div class="input">
           <label for="forEnsino">Conta Google</label>
-          <p class="p-ensino">jakelinebanana@gmail.com</p>
+          <p class="p-ensino">{{user.email}}</p>
         </div>
 
         <div class="btn-edit">
-          <a style="text-decoration: none;" href="/aluno/editperfil/"><button>Editar<span class="material-symbols-rounded">edit</span></button></a>
+          <a style="text-decoration: none;" href="/aluno/edit/"><button>Editar<span
+                class="material-symbols-rounded">edit</span></button></a>
         </div>
       </div>
 
-  </div>
-   <div class="btn-delete">
-          <button>Excluir conta<span class="material-symbols-rounded">close</span></button>
-        </div>
+    </div>
+    <div class="btn-delete">
+        <button onclick="alert()">Excluir conta<span class="material-symbols-rounded">close</span></button>
+    </div>
   </section>
 
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  function alert(){
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: "Você não pode reverter isso depois!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Isso, deletar conta'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.replace("/deletaruser");
+      }
+    })
+
+  }
+
+</script>
