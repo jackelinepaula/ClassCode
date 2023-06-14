@@ -46,8 +46,8 @@ function editarAluno({idAluno, nome, instEnsino}){
     })
 }
 
-function deletarAluno(id){
-    Aluno.destroy({ where: { idAluno: id }}).then(res.redirect("/logout"))
+function deletarUser(id){
+    Aluno.destroy({ where: { idAluno: id }})
 }
 
-module.exports = { existeAluno, getAluno, setAluno, editarAluno, deletarAluno}
+module.exports = { existeAluno, getAluno, setAluno, editarAluno, deletarUser}

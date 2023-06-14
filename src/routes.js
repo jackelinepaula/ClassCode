@@ -26,12 +26,14 @@ router.get("/cadastro", function(req, res){
 router.post("/cadastrar", cadastroUsuario)
 
 router.get('/logout', (req, res) => {
-    console.log('\x1b[33m%s\x1b[0m', "[sequelize] Aluno Cadastrado: " + req.session.user.name)
+    console.log('\x1b[33m%s\x1b[0m', "[sequelize] Usuário Desconectado: " + req.session.user.name)
     req.session.logged = false
     req.session.authID = null
     req.session.user = null
     res.redirect("/")
 })
+
+router.get("/deletaruser", crud.deletarUser)
 
 router.get('/aluno', sessionChecker, crud.alunoDash);
 

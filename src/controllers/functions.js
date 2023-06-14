@@ -1,8 +1,8 @@
 const Tecnologia = require('../models/tecnologia.js');
 const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
 const { setDuvida, getDuvida } = require('../models/duvida.js');
-const aluno = require('../models/aluno.js')
-const tutor = require('../models/tutor.js')
+const Aluno = require('../models/aluno.js')
+const Tutor = require('../models/tutor.js');
 
 async function alunoDash(req, res) {
     try {
@@ -67,10 +67,12 @@ async function getHistorico(req, res){
 
 async function perfilAluno(req, res){
     console.log(req.session.user.id);
-    const dataUser = await aluno.getAluno({
+    const dataUser = await Aluno.getAluno({
         where: {idAluno: req.session.user.id}
     }) 
     console.log(dataUser)
+
+    console.log("Url da imagem: "+ req.session.user.img)
 
     res.render("perfil", {
         style: "/css/perfil.css",
@@ -81,7 +83,7 @@ async function perfilAluno(req, res){
 
 async function perfilTutor(req, res){
     console.log(req.session.user.id);
-    const dataUser = await tutor.getTutor({
+    const dataUser = await Tutor.getTutor({
         where: {idTutor: req.session.user.id}
     }) 
     console.log(dataUser)
@@ -94,7 +96,7 @@ async function perfilTutor(req, res){
 }
 
 async function editPerfil(req, res){
-    const dataUser = await aluno.getAluno({
+    const dataUser = await Aluno.getAluno({
         where: {idAluno: req.session.user.id}
     }) 
 
@@ -113,10 +115,21 @@ async function updatePerfil(req, res){
         nome: req.query.nome,
         instEnsino: req.query.instEnsino
     }
-    await aluno.editarAluno(up)
+    await Aluno.editarAluno(up)
     
     
     res.redirect('/aluno/perfil')
+}
+
+function deletarUser(req, res){
+    const user = req.session.user
+    const model = user.tipoUser === "aluno" ? Aluno : Tutor
+
+    console.log('\x1b[33m%s\x1b[0m', '[session] Usuário Deletado: ' + user.name);
+
+    model.deletarUser(user.id)
+
+    res.redirect("/")
 }
 
 module.exports = {
@@ -127,5 +140,6 @@ module.exports = {
     getHistorico,
     perfilAluno,
     editPerfil,
-    updatePerfil
+    updatePerfil,
+    deletarUser
 }
