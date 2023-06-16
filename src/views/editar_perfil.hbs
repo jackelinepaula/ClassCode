@@ -2,7 +2,7 @@
 
   <div class="section-title mb-3">
     <div class="title-page d-flex gap-2 align-items-center">
-      <a href="/aluno/perfil">
+      <a href="/{{userSession.tipoUser}}/perfil">
         <span class="material-symbols-rounded">arrow_back</span>
       </a>
       <h4>Editar perfil</h4>
@@ -21,7 +21,7 @@
     <div class="card perfil">
 
       <div class="card-body">
-        <form action="/aluno/edit/update" method="get">
+        <form action="/{{userSession.tipoUser}}/edit/update" method="get">
           <div class="img">
             <img src={{user.perfilImg}} alt="" />
           </div>

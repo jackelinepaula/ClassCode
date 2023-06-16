@@ -161,3 +161,10 @@ body{
 .login .card .links-form a:hover{
     text-decoration:underline;
 }
+
+.login .card form #profissao-container{
+    display: none !important;
+}
+.login .card form #profissao-container.display{
+    display: block !important;
+}
