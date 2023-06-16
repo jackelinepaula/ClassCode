@@ -1,7 +1,7 @@
 const {TecnologiaTutor, Tecnologia, Tutor} = require('../models/banco.js');
 
 
-async function getTecnologiaTutor(id = null){
+async function getTecnologiaTutor(where = null){
     let arr = []
 
     const parameters = {
@@ -11,8 +11,8 @@ async function getTecnologiaTutor(id = null){
         ],
     }
 
-    if (id !== null){
-        parameters.where = {idTecnologia: id}
+    if (where !== null){
+        parameters.where = where
     }
 
     const dataTecnologia = await TecnologiaTutor.findAll(parameters)

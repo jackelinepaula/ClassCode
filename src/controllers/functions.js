@@ -1,6 +1,6 @@
 const Tecnologia = require('../models/tecnologia.js');
-const { getTecnologiaTutor } = require('../models/tecnologiaTutor.js');
-const { setDuvida, getDuvida } = require('../models/duvida.js');
+const {getTecnologiaTutor} = require('../models/tecnologiaTutor.js');
+const {setDuvida,getDuvida} = require('../models/duvida.js');
 const Aluno = require('../models/aluno.js')
 const Tutor = require('../models/tutor.js');
 
@@ -10,8 +10,6 @@ async function alunoDash(req, res) {
         res.render("dash_aluno", {
             user: req.session.user,
             data: {
-                // aluno: user,
-
                 tecnologia: tecnologia
             },
             style: "/css/dashaluno.css",
@@ -22,23 +20,32 @@ async function alunoDash(req, res) {
 }
 
 async function tutorDash(req, res) {
-    const duvidas = await getDuvida({idTutor: req.session.user.id})
+    const duvidas = await getDuvida({
+        idTutor: req.session.user.id
+    })
+    const tecnologias = await getTecnologiaTutor({idTutor: req.session.user.id})
+    
     console.log(duvidas)
+    console.log("Tecnologias coletadas" + tecnologias)
+
     res.render("dash_tutor", {
         user: req.session.user,
         data: {
-            duvidas
+            tecnologias: tecnologias,
+            duvidas: duvidas,
         },
         style: "/css/dashtutor.css",
         layout: "tutor",
     })
 }
 
-async function alunoTutor(req, res){
+async function alunoTutor(req, res) {
     const {idTecnologia} = req.query
-    const tecnologiaTutor = await getTecnologiaTutor(idTecnologia)
-    
-    if (tecnologiaTutor.length === 0){
+    const tecnologiaTutor = await getTecnologiaTutor({idTecnologia: idTecnologia})
+
+
+    console.log(tecnologiaTutor);
+    if (tecnologiaTutor.length === 0) {
         res.send("Não tem nenhum tutor cadastrado para essa categoria")
     } else {
         res.render("escolha_tutores", {
@@ -50,13 +57,15 @@ async function alunoTutor(req, res){
     }
 }
 
-function cadastrarDuvida(req, res){
+function cadastrarDuvida(req, res) {
     setDuvida(req.body, req.session.user.id)
     res.redirect("/aluno/historico")
 }
 
-async function getHistorico(req, res){
-    const duvidas = await getDuvida({idAluno: req.session.user.id})
+async function getHistorico(req, res) {
+    const duvidas = await getDuvida({
+        idAluno: req.session.user.id
+    })
     console.log(duvidas);
     res.render("historico", {
         style: "/css/historico.css",
@@ -65,14 +74,16 @@ async function getHistorico(req, res){
     })
 }
 
-async function perfilAluno(req, res){
+async function perfilAluno(req, res) {
     console.log(req.session.user.id);
     const dataUser = await Aluno.getAluno({
-        where: {idAluno: req.session.user.id}
-    }) 
+        where: {
+            idAluno: req.session.user.id
+        }
+    })
     console.log(dataUser)
 
-    console.log("Url da imagem: "+ req.session.user.img)
+    console.log("Url da imagem: " + req.session.user.img)
 
     res.render("perfil", {
         style: "/css/perfil.css",
@@ -81,47 +92,84 @@ async function perfilAluno(req, res){
     })
 }
 
-async function perfilTutor(req, res){
+async function perfilTutor(req, res) {
     console.log(req.session.user.id);
     const dataUser = await Tutor.getTutor({
-        where: {idTutor: req.session.user.id}
-    }) 
+        where: {
+            idTutor: req.session.user.id
+        }
+    })
     console.log(dataUser)
 
     res.render("perfil", {
         style: "/css/perfil.css",
+        layout: "tutor",
         user: dataUser,
         userSession: req.session.user
     })
 }
 
-async function editPerfil(req, res){
+async function editPerfilAluno(req, res) {
     const dataUser = await Aluno.getAluno({
-        where: {idAluno: req.session.user.id}
-    }) 
+        where: {
+            idAluno: req.session.user.id
+        }
+    })
+
+    res.render("editar_perfil", {
+        style: "/css/perfil.css", 
+        layout: "tutor",
+        user: dataUser,
+        userSession: req.session.user
+    })
+}
+
+async function editPerfilTutor(req, res) {
+    const dataUser = await Tutor.getTutor({
+        where: {
+            idTutor: req.session.user.id
+        }
+    })
 
     res.render("editar_perfil", {
         style: "/css/perfil.css",
+        layout: "tutor",
         user: dataUser,
         userSession: req.session.user
     })
 }
 
-async function updatePerfil(req, res){
+async function updatePerfilAluno(req, res) {
     console.log(req.query)
 
     const up = {
-        idAluno: req.session.user.id, 
+        idAluno: req.session.user.id,
         nome: req.query.nome,
         instEnsino: req.query.instEnsino
     }
-    await Aluno.editarAluno(up)
-    
-    
+    const data = await Aluno.editarAluno(up)
+    req.session.user.name = up.nome
+    req.session.user.instEnsino = up.instEnsino
+
     res.redirect('/aluno/perfil')
 }
 
-function deletarUser(req, res){
+async function updatePerfilTutor(req, res) {
+    console.log(req.query)
+
+    const up = {
+        idTutor: req.session.user.id,
+        nome: req.query.nome,
+        instEnsino: req.query.instEnsino
+    }
+    const data = await Tutor.editarTutor(up)
+    req.session.user.name = up.nome
+    req.session.user.instEnsino = up.instEnsino
+
+    res.redirect('/tutor/perfil')
+}
+
+function deletarUser(req, res) {
     const user = req.session.user
     const model = user.tipoUser === "aluno" ? Aluno : Tutor
 
@@ -139,7 +187,10 @@ module.exports = {
     cadastrarDuvida,
     getHistorico,
     perfilAluno,
-    editPerfil,
-    updatePerfil,
+    perfilTutor,
+    editPerfilAluno,
+    editPerfilTutor,
+    updatePerfilAluno,
+    updatePerfilTutor,
     deletarUser
 }

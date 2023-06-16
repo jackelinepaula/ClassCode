@@ -27,6 +27,8 @@
                 type="button" role="tab" aria-controls="nav-espera" aria-selected="false">Aguardando um
                 tutor</button>
 
+<button class="nav-link" id="nav-aula-tab" data-bs-toggle="tab" data-bs-target="#nav-aula"
+                type="button" role="tab" aria-controls="nav-aula" aria-selected="false">Aulas</button>
 
             <button class="nav-link" id="nav-tutor-tab" data-bs-toggle="tab" data-bs-target="#nav-tutor" type="button"
                 role="tab" aria-controls="nav-tutor" aria-selected="true">Meus tutores</button>
@@ -55,13 +57,33 @@
                 </div>
             </div>
 
+            <div class="tab-pane fade" id="nav-aula" role="tabpanel" aria-labelledby="nav-aula-tab" tabindex="0">
+                <div class="container aulas">
+                    <div class="row">
+                        {{!-- {{#each data}}
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{dataValues.assuntoDuvida}}</h5>
+                                    <p class="card-text desc">{{dataValues.descricaoDuvida}}</p>
+                                    <div class="links">
+                                        <a href="#" class="card-link">{{tecnologia.nomeTecnologia}}</a>
+                                    </div>
+                                    <img src={{tutor.img}} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}} --}}
+                    </div>
+                </div>
+            </div>
             
             <div class="tab-pane fade" id="nav-tutor" role="tabpanel" aria-labelledby="nav-tutor-tab" tabindex="0">
                 <div class="row tutores">
 
                     {{#each data}}
-                    <div class="col-sm">
-                        <div class="card d-flex flex-column gap-4 p-4">
+                    <div class="col-4">
+                        <div class="card d-flex flex-column gap-4 p-3">
                             <div class="card-body d-flex justify-content-start align-items-center gap-3">
                                 <div class="img">
                                     <span class="material-symbols-sharp">
@@ -76,6 +98,8 @@
                             </div>
                             <div class="card-categorias d-flex align-items-center gap-2">
                                 <p class="categoria p-1">Node JS</p>
+                                <p class="categoria p-1">Javascript</p>
+                                <p class="categoria p-1">Java</p>
                             </div>
                         </div>
                     </div>

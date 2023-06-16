@@ -12,7 +12,7 @@ async function cadastroUsuario(req,res){
     console.log("Usuario existe? " + verificaUser);
 
     if (verificaUser){
-        res.send("Email já Cadastrado no sistema")
+        res.redirect("/cadastro?emailExiste=true")
     } else {
         const model = tipoUser === "Aluno" ? Aluno : Tutor
         console.log(model);

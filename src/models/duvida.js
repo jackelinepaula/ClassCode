@@ -27,12 +27,13 @@ async function getDuvida(where = null){
     const dataDuvida = await Duvida.findAll(parameters)
     if (dataDuvida.length === 0) return null
 
+    console.log(dataDuvida);
     dataDuvida.map((item) => {    
         const dataObj = item.dataValues
 
-        const tutor = item.tutore
-        const tecnologia = item.tecnologia
-        const aluno = item.aluno
+        const tutor = dataObj.tutore
+        const tecnologia = dataObj.tecnologia
+        const aluno = dataObj.aluno
 
         const contentObj = {
             dataValues: dataObj,
@@ -40,16 +41,18 @@ async function getDuvida(where = null){
                 id: tutor.dataValues.idTutor,
                 name: tutor.dataValues.nome,
                 img: tutor.dataValues.perfilImg,
-                instEnsino: tutor.instEnsino,
+                instEnsino: tutor.dataValues.instEnsino,
             },
             tecnologia: tecnologia.dataValues,
             aluno: aluno.dataValues
         }
 
+        
         arr.push(contentObj)
     })
     
     return arr
+    
 }
 
 module.exports = {

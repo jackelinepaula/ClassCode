@@ -16,7 +16,7 @@ function setTutor({authName, authEmail, authID, authImg, instEnsino, profissao})
         authId: authID,
         perfilImg: authImg,
         instEnsino: instEnsino,
-        profissao
+        profissao: profissao
     }).then(() => {
         console.log('\x1b[33m%s\x1b[0m', "[sequelize] Tutor Cadastrado: " + authName)
     })
@@ -36,13 +36,13 @@ async function getTutor(where){
 
 function editarTutor({idTutor, nome, instEnsino, profissao}){
     Tutor.update({
-        nome,
-        instEnsino,
-        profissao
+        nome: nome,
+        instEnsino: instEnsino,
+        profissao: profissao
     },{
         where: { idTutor }
     }).then(() => {
-        res.redirect("/tutor/dash")
+        console.log('[Dados atualizados com sucesso!]')
     })
 }
 

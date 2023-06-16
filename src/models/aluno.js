@@ -1,5 +1,6 @@
 const { Aluno } = require('../models/banco.js')
 
+
 function existeAluno(where){
     return Aluno.findAll({ where: where }).then((data) => {
         if (data.length !== 0) {
@@ -41,9 +42,11 @@ function editarAluno({idAluno, nome, instEnsino}){
         instEnsino: instEnsino
     },{
         where: { idAluno: idAluno }
-    }).then(() => {
-        return "Dados atualizados"
+    }).then(()=>{
+        console.log('[Dados atualizados com sucesso!]')
     })
+       
+    
 }
 
 function deletarUser(id){

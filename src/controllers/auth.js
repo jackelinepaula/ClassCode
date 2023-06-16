@@ -21,7 +21,8 @@ async function auth(req, res) {
             firstName: userData.nome.split(" ")[0],
             email: userData.email,
             img: userData.perfilImg,
-            instEnsino: userData.instEnsino
+            instEnsino: userData.instEnsino,
+            profissao: userData.profissao
         }
 
 

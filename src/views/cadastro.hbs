@@ -46,6 +46,10 @@
                         <label for="instituicao">Onde você estuda/leciona?</label>
                         <input type="text" id="instituicao" name="instEnsino" placeholder="Instituição de ensino">
                     </div>
+                    <div class="input d-flex flex-column cadastro gap-2" id="profissao-container">
+                        <label for="instituicao">Qual é sua profissão</label>
+                        <input type="text" id="profissao" name="profissao" placeholder="Profissão">
+                    </div>
 
                     <input class="input-firebase" type="text" id="authID" name="authID">
                     <input class="input-firebase" type="text" id="authName" name="authName">
@@ -61,8 +65,33 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{#if emailExiste}}
+        <script>
+            Swal.fire({
+                title: 'Erro',
+                text: "Esta conta do google já está cadastrada",
+                icon: 'error',
+                
+            })
+        </script>
+    {{/if}}
+
+    <script>
+        document.getElementsByName("tipoUser")[0].addEventListener("click", () => {
+            document.getElementById("profissao-container").classList.remove("display")
+        })
+        document.getElementsByName("tipoUser")[1].addEventListener("click", () => {
+            document.getElementById("profissao-container").classList.add("display")
+        })
+    
+
+    </script>
+
+
     <script type="module" src="/js/auth.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></scrip>
 
 </body>
 

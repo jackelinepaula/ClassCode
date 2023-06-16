@@ -17,9 +17,11 @@ router.get("/", function(req, res){
 router.post("/auth", auth)
 
 router.get("/cadastro", function(req, res){
+    console.log(req.query);
     res.render("cadastro", {
         style: "/css/login.css",
-        layout: "login"
+        layout: "login",
+        emailExiste: req.query.emailExiste || false
     })
 })
 
@@ -64,8 +66,14 @@ router.get("/aluno/historico", sessionChecker, crud.getHistorico)
 
 router.get("/aluno/perfil", sessionChecker, crud.perfilAluno)
 
-router.get("/aluno/edit", sessionChecker, crud.editPerfil)
+router.get("/aluno/edit", sessionChecker, crud.editPerfilAluno)
 
-router.get("/aluno/edit/update", crud.updatePerfil)
+router.get("/aluno/edit/update", crud.updatePerfilAluno)
+
+router.get("/tutor/perfil", sessionChecker, crud.perfilTutor)
+
+router.get("/tutor/edit", sessionChecker, crud.editPerfilTutor)
+
+router.get("/tutor/edit/update", crud.updatePerfilTutor)
 
 module.exports = router
